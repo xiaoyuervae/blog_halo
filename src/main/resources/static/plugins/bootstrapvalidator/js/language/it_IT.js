@@ -34,7 +34,7 @@
         },
         date: {
             'default': 'Si prega di inserire una data valida',
-            min: 'Si prega di inserire una data sucomessiva al %s',
+            min: 'Si prega di inserire una data successiva al %s',
             max: 'Si prega di inserire una data antecedente il %s',
             range: 'Si prega di inserire una data compresa tra %s - %s'
         },

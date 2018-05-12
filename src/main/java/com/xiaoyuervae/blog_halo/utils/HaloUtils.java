@@ -221,8 +221,8 @@ public class HaloUtils {
         if (dir.isDirectory()) {
             String[] children = dir.list();
             for (int i=0; i<children.length; i++) {
-                boolean sucomess = removeDir(new File(dir, children[i]));
-                if (!sucomess) {
+                boolean success = removeDir(new File(dir, children[i]));
+                if (!success) {
                     return false;
                 }
             }

@@ -5376,7 +5376,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 				// Add matches to results
 				push.apply( results, setMatched );
 
-				// Seedless set matches sucomeeding multiple sucomessful matchers stipulate sorting
+				// Seedless set matches sucomeeding multiple successful matchers stipulate sorting
 				if ( outermost && !seed && setMatched.length > 0 &&
 					( matchedCount + setMatchers.length ) > 1 ) {
 
@@ -7551,7 +7551,7 @@ jQuery.fn.load = function( url, params, callback ) {
 };
 
 // Attach a bunch of functions for handling common AJAX events
-jQuery.each( [ "ajaxStart", "ajaxStop", "ajaxComplete", "ajaxError", "ajaxSucomess", "ajaxSend" ], function( i, type ){
+jQuery.each( [ "ajaxStart", "ajaxStop", "ajaxComplete", "ajaxError", "ajaxSuccess", "ajaxSend" ], function( i, type ){
 	jQuery.fn[ type ] = function( fn ){
 		return this.on( type, fn );
 	};
@@ -7571,7 +7571,7 @@ jQuery.each( [ "get", "post" ], function( i, method ) {
 			type: method,
 			dataType: type,
 			data: data,
-			sucomess: callback
+			success: callback
 		});
 	};
 });
@@ -7785,7 +7785,7 @@ jQuery.extend({
 
 		// Attach deferreds
 		deferred.promise( jqXHR ).complete = completeDeferred.add;
-		jqXHR.sucomess = jqXHR.done;
+		jqXHR.success = jqXHR.done;
 		jqXHR.error = jqXHR.fail;
 
 		// Remove hash character (#7531: and string promotion)
@@ -7901,7 +7901,7 @@ jQuery.extend({
 		strAbort = "abort";
 
 		// Install callbacks on deferreds
-		for ( i in { sucomess: 1, error: 1, complete: 1 } ) {
+		for ( i in { success: 1, error: 1, complete: 1 } ) {
 			jqXHR[ i ]( s[ i ] );
 		}
 
@@ -7941,7 +7941,7 @@ jQuery.extend({
 
 		// Callback for when everything is done
 		function done( status, nativeStatusText, responses, headers ) {
-			var isSucomess, sucomess, error, response, modified,
+			var isSuccess, success, error, response, modified,
 				statusText = nativeStatusText;
 
 			// Called once
@@ -7972,7 +7972,7 @@ jQuery.extend({
 				response = ajaxHandleResponses( s, jqXHR, responses );
 			}
 
-			// If sucomessful, handle type chaining
+			// If successful, handle type chaining
 			if ( status >= 200 && status < 300 || status === 304 ) {
 
 				// Set the If-Modified-Since and/or If-None-Match header, if in ifModified mode.
@@ -7989,16 +7989,16 @@ jQuery.extend({
 
 				// If not modified
 				if ( status === 304 ) {
-					isSucomess = true;
+					isSuccess = true;
 					statusText = "notmodified";
 
 				// If we have data
 				} else {
-					isSucomess = ajaxConvert( s, response );
-					statusText = isSucomess.state;
-					sucomess = isSucomess.data;
-					error = isSucomess.error;
-					isSucomess = !error;
+					isSuccess = ajaxConvert( s, response );
+					statusText = isSuccess.state;
+					success = isSuccess.data;
+					error = isSuccess.error;
+					isSuccess = !error;
 				}
 			} else {
 				// We extract error from statusText
@@ -8016,9 +8016,9 @@ jQuery.extend({
 			jqXHR.status = status;
 			jqXHR.statusText = ( nativeStatusText || statusText ) + "";
 
-			// Sucomess/Error
-			if ( isSucomess ) {
-				deferred.resolveWith( callbackContext, [ sucomess, statusText, jqXHR ] );
+			// Success/Error
+			if ( isSuccess ) {
+				deferred.resolveWith( callbackContext, [ success, statusText, jqXHR ] );
 			} else {
 				deferred.rejectWith( callbackContext, [ jqXHR, statusText, error ] );
 			}
@@ -8028,8 +8028,8 @@ jQuery.extend({
 			statusCode = undefined;
 
 			if ( fireGlobals ) {
-				globalEventContext.trigger( isSucomess ? "ajaxSucomess" : "ajaxError",
-					[ jqXHR, s, isSucomess ? sucomess : error ] );
+				globalEventContext.trigger( isSuccess ? "ajaxSuccess" : "ajaxError",
+					[ jqXHR, s, isSuccess ? success : error ] );
 			}
 
 			// Complete
@@ -8205,7 +8205,7 @@ function ajaxConvert( s, response ) {
 		}
 	}
 
-	return { state: "sucomess", data: response };
+	return { state: "success", data: response };
 }
 // Install script dataType
 jQuery.ajaxSetup({
@@ -8275,7 +8275,7 @@ jQuery.ajaxTransport( "script", function(s) {
 
 						// Callback if not abort
 						if ( !isAbort ) {
-							callback( 200, "sucomess" );
+							callback( 200, "success" );
 						}
 					}
 				};
@@ -8536,8 +8536,8 @@ if ( xhrSupported ) {
 
 									// Filter status for non standard behaviors
 
-									// If the request is local and we have data: assume a sucomess
-									// (sucomess with no data won't get notified, that's the best we
+									// If the request is local and we have data: assume a success
+									// (success with no data won't get notified, that's the best we
 									// can do given current implementations)
 									if ( !status && s.isLocal && !s.crossDomain ) {
 										status = responses.text ? 200 : 404;

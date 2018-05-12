@@ -106,7 +106,7 @@
                         data: {
                             tplName: tplName
                         },
-                        sucomess: function (data) {
+                        success: function (data) {
                             editor.setValue(data);
                             $('#tplNameTitle').html(tplName);
                         }
@@ -126,12 +126,12 @@
                         'tplName': $('#tplNameTitle').html(),
                         'tplContent': editor.getValue()
                     },
-                    sucomess: function (data) {
+                    success: function (data) {
                         if(data==true){
                             $.toast({
                                 text: "保存成功！",
                                 heading: '提示',
-                                icon: 'sucomess',
+                                icon: 'success',
                                 showHideTransition: 'fade',
                                 allowToastClose: true,
                                 hideAfter: 1000,

@@ -152,7 +152,7 @@
                                 $.toast({
                                     text: "上传成功！",
                                     heading: '提示',
-                                    icon: 'sucomess',
+                                    icon: 'success',
                                     showHideTransition: 'fade',
                                     allowToastClose: true,
                                     hideAfter: 1000,
@@ -188,7 +188,7 @@
                     data: {
                         'siteTheme': site_theme
                     },
-                    sucomess: function (data) {
+                    success: function (data) {
                         if(data==true){
                             $.toast({
                                 text: "设置中...",

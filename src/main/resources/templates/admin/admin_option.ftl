@@ -580,11 +580,11 @@
                     data: {
                         postSummary : $('#postSummary').val()
                     },
-                    sucomess: function (data) {
+                    success: function (data) {
                         if(data==true){
-                            showMsg("所有文章摘要更新成功！","sucomess",1000);
+                            showMsg("所有文章摘要更新成功！","success",1000);
                         }else{
-                            showMsg("更新失败！","sucomess",2000);
+                            showMsg("更新失败！","success",2000);
                         }
                     }
                 });
@@ -600,11 +600,11 @@
                     data: {
                         baiduToken : $('#baiduToken').val()
                     },
-                    sucomess: function (data) {
+                    success: function (data) {
                         if(data==true){
-                            showMsg("推送所有文章成功！","sucomess",1000);
+                            showMsg("推送所有文章成功！","success",1000);
                         }else{
-                            showMsg("推送失败！","sucomess",2000);
+                            showMsg("推送失败！","success",2000);
                         }
                     }
                 });

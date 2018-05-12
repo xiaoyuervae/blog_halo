@@ -138,7 +138,7 @@ public class AdminController extends BaseController {
                     //重置用户的登录状态为正常
                     userService.updateUserNormal();
                     userService.updateUserLoginLast(new Date());
-                    logsService.saveByLogs(new Logs(LogsRecord.LOGIN, LogsRecord.LOGIN_SUcomESS, HaloUtils.getIpAddr(request), new Date()));
+                    logsService.saveByLogs(new Logs(LogsRecord.LOGIN, LogsRecord.LOGIN_SUCCESS, HaloUtils.getIpAddr(request), new Date()));
                     status = "true";
                 }
             }

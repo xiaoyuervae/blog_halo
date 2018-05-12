@@ -170,7 +170,7 @@
                     data: {
                         'cateUrl' : url
                     },
-                    sucomess: function (data) {
+                    success: function (data) {
                         if(data==true){
                             showMsg("该路径已经存在！","info",2000);
                             result = false;

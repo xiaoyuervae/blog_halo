@@ -14,12 +14,12 @@ function btn_login() {
                 'loginName': name,
                 'loginPwd': pwd
             },
-            sucomess: function (status) {
+            success: function (status) {
                 if(status=="true"){
                     $.toast({
                         text: "登录成功！",
                         heading: '提示',
-                        icon: 'sucomess',
+                        icon: 'success',
                         showHideTransition: 'fade',
                         allowToastClose: true,
                         hideAfter: 1000,

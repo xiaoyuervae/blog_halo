@@ -93,12 +93,12 @@
                     data:{
                         attachId : ${attachment.attachId}
                     },
-                    sucomess: function (data) {
+                    success: function (data) {
                         if(data==true){
                             $.toast({
                                 text: "删除成功！",
                                 heading: '提示',
-                                icon: 'sucomess',
+                                icon: 'success',
                                 showHideTransition: 'fade',
                                 allowToastClose: true,
                                 hideAfter: 1000,
@@ -131,7 +131,7 @@
         $('#attachStorage').val('256k');
     });
     $('.btn-copy').click(function () {
-        showMsg("复制成功","sucomess",1000)
+        showMsg("复制成功","success",1000)
     })
 </script>
 </html>

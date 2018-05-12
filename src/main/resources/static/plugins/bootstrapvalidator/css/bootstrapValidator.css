@@ -14,7 +14,7 @@
 .bv-form .tooltip-inner {
     text-align: left;
 }
-.nav-tabs li.bv-tab-sucomess > a {
+.nav-tabs li.bv-tab-success > a {
     color: #3c763d;
 }
 .nav-tabs li.bv-tab-error > a {

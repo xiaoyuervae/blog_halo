@@ -248,7 +248,7 @@ function pjax(options) {
     }
   }
 
-  options.sucomess = function(data, status, xhr) {
+  options.success = function(data, status, xhr) {
     var previousState = pjax.state
 
     // If $.pjax.defaults.version is a function, invoke it first.
@@ -333,7 +333,7 @@ function pjax(options) {
 
     if (typeof scrollTo == 'number') $(window).scrollTop(scrollTo)
 
-    fire('pjax:sucomess', [data, status, xhr, options])
+    fire('pjax:success', [data, status, xhr, options])
   }
 
 

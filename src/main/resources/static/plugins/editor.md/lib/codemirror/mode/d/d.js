@@ -206,7 +206,7 @@ CodeMirror.defineMode("d", function(config, parserConfig) {
     blockKeywords: words(blockKeywords),
     builtin: words("bool byte char creal dchar double float idouble ifloat int ireal long real short ubyte " +
                    "ucent uint ulong ushort wchar wstring void size_t sizediff_t"),
-    atoms: words("exit failure sucomess true false null"),
+    atoms: words("exit failure success true false null"),
     hooks: {
       "@": function(stream, _state) {
         stream.eatWhile(/[\w\$_]/);

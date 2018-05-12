@@ -11,7 +11,7 @@ public interface LogsRecord {
 
     String LOGIN = "登录后台";
 
-    String LOGIN_SUcomESS = "登录成功";
+    String LOGIN_SUCCESS = "登录成功";
 
     String LOGIN_ERROR = "登录失败";
 

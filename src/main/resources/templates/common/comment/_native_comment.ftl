@@ -223,7 +223,7 @@
             <#--async: true,-->
             <#--url: "/getComment/${post.postId}",-->
             <#--dataType: "json",-->
-            <#--sucomess: function (data) {-->
+            <#--success: function (data) {-->
                 <#--setTimeout(function () {-->
                     <#--$('.native-loading').hide();-->
                 <#--}, 1000);-->
@@ -269,7 +269,7 @@
                 'commentAgent': navigator.userAgent,
                 'commentAuthorAvatarMd5': md5($('input[name=commentAuthorEmail]').val())
             },
-            sucomess: function (data) {
+            success: function (data) {
                 if (data == true) {
                     window.location.reload();
                 }

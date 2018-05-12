@@ -71,15 +71,15 @@ if (typeof jQuery === 'undefined') {
                     events: {
                         formInit:         this.$form.attr('data-bv-events-form-init'),
                         formError:        this.$form.attr('data-bv-events-form-error'),
-                        formSucomess:      this.$form.attr('data-bv-events-form-sucomess'),
+                        formSuccess:      this.$form.attr('data-bv-events-form-success'),
                         fieldAdded:       this.$form.attr('data-bv-events-field-added'),
                         fieldRemoved:     this.$form.attr('data-bv-events-field-removed'),
                         fieldInit:        this.$form.attr('data-bv-events-field-init'),
                         fieldError:       this.$form.attr('data-bv-events-field-error'),
-                        fieldSucomess:     this.$form.attr('data-bv-events-field-sucomess'),
+                        fieldSuccess:     this.$form.attr('data-bv-events-field-success'),
                         fieldStatus:      this.$form.attr('data-bv-events-field-status'),
                         validatorError:   this.$form.attr('data-bv-events-validator-error'),
-                        validatorSucomess: this.$form.attr('data-bv-events-validator-sucomess')
+                        validatorSuccess: this.$form.attr('data-bv-events-validator-success')
                     },
                     excluded:       this.$form.attr('data-bv-excluded'),
                     feedbackIcons: {
@@ -91,7 +91,7 @@ if (typeof jQuery === 'undefined') {
                     live:           this.$form.attr('data-bv-live'),
                     message:        this.$form.attr('data-bv-message'),
                     onError:        this.$form.attr('data-bv-onerror'),
-                    onSucomess:      this.$form.attr('data-bv-onsucomess'),
+                    onSuccess:      this.$form.attr('data-bv-onsuccess'),
                     submitButtons:  this.$form.attr('data-bv-submitbuttons'),
                     threshold:      this.$form.attr('data-bv-threshold'),
                     trigger:        this.$form.attr('data-bv-trigger'),
@@ -162,9 +162,9 @@ if (typeof jQuery === 'undefined') {
             });
 
             // Prepare the events
-            if (this.options.onSucomess) {
-                this.$form.on(this.options.events.formSucomess, function(e) {
-                    $.fn.bootstrapValidator.helpers.call(that.options.onSucomess, [e]);
+            if (this.options.onSuccess) {
+                this.$form.on(this.options.events.formSuccess, function(e) {
+                    $.fn.bootstrapValidator.helpers.call(that.options.onSuccess, [e]);
                 });
             }
             if (this.options.onError) {
@@ -203,7 +203,7 @@ if (typeof jQuery === 'undefined') {
                     || (html5AttrMap !== true && ('' === enabled || 'true' === enabled || attrName === enabled.toLowerCase())))
                 {
                     // Try to parse the options via attributes
-                    validator.html5Attributes = $.extend({}, { message: 'message', onerror: 'onError', onsucomess: 'onSucomess' }, validator.html5Attributes);
+                    validator.html5Attributes = $.extend({}, { message: 'message', onerror: 'onError', onsuccess: 'onSuccess' }, validator.html5Attributes);
                     validators[v] = $.extend({}, html5AttrMap === true ? {} : html5AttrMap, validators[v]);
 
                     for (html5AttrName in validator.html5Attributes) {
@@ -231,7 +231,7 @@ if (typeof jQuery === 'undefined') {
                     message:       $field.attr('data-bv-message'),
                     onError:       $field.attr('data-bv-onerror'),
                     onStatus:      $field.attr('data-bv-onstatus'),
-                    onSucomess:     $field.attr('data-bv-onsucomess'),
+                    onSuccess:     $field.attr('data-bv-onsuccess'),
                     selector:      $field.attr('data-bv-selector'),
                     threshold:     $field.attr('data-bv-threshold'),
                     trigger:       $field.attr('data-bv-trigger'),
@@ -348,7 +348,7 @@ if (typeof jQuery === 'undefined') {
                     && this.options.feedbackIcons.validating && this.options.feedbackIcons.invalid && this.options.feedbackIcons.valid
                     && (!updateAll || i === total - 1))
                 {
-                    // $parent.removeClass('has-sucomess').removeClass('has-error').addClass('has-feedback');
+                    // $parent.removeClass('has-success').removeClass('has-error').addClass('has-feedback');
                     // Keep error messages which are populated from back-end
                     $parent.addClass('has-feedback');
                     var $icon = $('<i/>')
@@ -423,10 +423,10 @@ if (typeof jQuery === 'undefined') {
 
             // Prepare the events
             fields
-                .on(this.options.events.fieldSucomess, function(e, data) {
-                    var onSucomess = that.getOptions(data.field, null, 'onSucomess');
-                    if (onSucomess) {
-                        $.fn.bootstrapValidator.helpers.call(onSucomess, [e, data]);
+                .on(this.options.events.fieldSuccess, function(e, data) {
+                    var onSuccess = that.getOptions(data.field, null, 'onSuccess');
+                    if (onSuccess) {
+                        $.fn.bootstrapValidator.helpers.call(onSuccess, [e, data]);
                     }
                 })
                 .on(this.options.events.fieldError, function(e, data) {
@@ -447,10 +447,10 @@ if (typeof jQuery === 'undefined') {
                         $.fn.bootstrapValidator.helpers.call(onError, [e, data]);
                     }
                 })
-                .on(this.options.events.validatorSucomess, function(e, data) {
-                    var onSucomess = that.getOptions(data.field, data.validator, 'onSucomess');
-                    if (onSucomess) {
-                        $.fn.bootstrapValidator.helpers.call(onSucomess, [e, data]);
+                .on(this.options.events.validatorSuccess, function(e, data) {
+                    var onSuccess = that.getOptions(data.field, data.validator, 'onSuccess');
+                    if (onSuccess) {
+                        $.fn.bootstrapValidator.helpers.call(onSuccess, [e, data]);
                     }
                 });
 
@@ -543,7 +543,7 @@ if (typeof jQuery === 'undefined') {
          */
         _submit: function() {
             var isValid   = this.isValid(),
-                eventType = isValid ? this.options.events.formSucomess : this.options.events.formError,
+                eventType = isValid ? this.options.events.formSuccess : this.options.events.formError,
                 e         = $.Event(eventType);
 
             this.$form.trigger(e);
@@ -551,7 +551,7 @@ if (typeof jQuery === 'undefined') {
             // Call default handler
             // Check if whether the submit button is clicked
             if (this.$submitButton) {
-                isValid ? this._onSucomess(e) : this._onError(e);
+                isValid ? this._onSuccess(e) : this._onError(e);
             }
         },
 
@@ -675,12 +675,12 @@ if (typeof jQuery === 'undefined') {
         },
 
         /**
-         * The default handler of sucomess.form.bv event.
+         * The default handler of success.form.bv event.
          * It will be called when all the fields are valid
          *
          * @param {jQuery.Event} e The jQuery event object
          */
-        _onSucomess: function(e) {
+        _onSuccess: function(e) {
             if (e.isDefaultPrevented()) {
                 return;
             }
@@ -715,7 +715,7 @@ if (typeof jQuery === 'undefined') {
                         $field.trigger($.Event(this.options.events.validatorError), data);
                         break;
                     case this.STATUS_VALID:
-                        $field.trigger($.Event(this.options.events.validatorSucomess), data);
+                        $field.trigger($.Event(this.options.events.validatorSuccess), data);
                         break;
                     default:
                         break;
@@ -743,7 +743,7 @@ if (typeof jQuery === 'undefined') {
                 // Remove from the list of invalid fields
                 this.$invalidFields = this.$invalidFields.not($field);
 
-                $field.trigger($.Event(this.options.events.fieldSucomess), data);
+                $field.trigger($.Event(this.options.events.fieldSuccess), data);
             }
             // If all validators are completed and there is at least one validator which doesn't pass
             else if ((counter[this.STATUS_NOT_VALIDATED] === 0 || !this._isOptionEnabled(field, 'verbose')) && counter[this.STATUS_VALIDATING] === 0 && counter[this.STATUS_INVALID] > 0) {
@@ -1063,24 +1063,24 @@ if (typeof jQuery === 'undefined') {
                     case this.STATUS_VALIDATING:
                         isValidField = null;
                         this.disableSubmitButtons(true);
-                        $parent.removeClass('has-sucomess').removeClass('has-error');
+                        $parent.removeClass('has-success').removeClass('has-error');
                         if ($icon) {
                             $icon.removeClass(this.options.feedbackIcons.valid).removeClass(this.options.feedbackIcons.invalid).addClass(this.options.feedbackIcons.validating).show();
                         }
                         if ($tab) {
-                            $tab.removeClass('bv-tab-sucomess').removeClass('bv-tab-error');
+                            $tab.removeClass('bv-tab-success').removeClass('bv-tab-error');
                         }
                         break;
 
                     case this.STATUS_INVALID:
                         isValidField = false;
                         this.disableSubmitButtons(true);
-                        $parent.removeClass('has-sucomess').addClass('has-error');
+                        $parent.removeClass('has-success').addClass('has-error');
                         if ($icon) {
                             $icon.removeClass(this.options.feedbackIcons.valid).removeClass(this.options.feedbackIcons.validating).addClass(this.options.feedbackIcons.invalid).show();
                         }
                         if ($tab) {
-                            $tab.removeClass('bv-tab-sucomess').addClass('bv-tab-error');
+                            $tab.removeClass('bv-tab-success').addClass('bv-tab-error');
                         }
                         break;
 
@@ -1099,9 +1099,9 @@ if (typeof jQuery === 'undefined') {
                             }
                         }
 
-                        $parent.removeClass('has-error has-sucomess').addClass(this.isValidContainer($parent) ? 'has-sucomess' : 'has-error');
+                        $parent.removeClass('has-error has-success').addClass(this.isValidContainer($parent) ? 'has-success' : 'has-error');
                         if ($tab) {
-                            $tab.removeClass('bv-tab-sucomess').removeClass('bv-tab-error').addClass(this.isValidContainer($tabPane) ? 'bv-tab-sucomess' : 'bv-tab-error');
+                            $tab.removeClass('bv-tab-success').removeClass('bv-tab-error').addClass(this.isValidContainer($tabPane) ? 'bv-tab-success' : 'bv-tab-error');
                         }
                         break;
 
@@ -1110,12 +1110,12 @@ if (typeof jQuery === 'undefined') {
                     default:
                         isValidField = null;
                         this.disableSubmitButtons(false);
-                        $parent.removeClass('has-sucomess').removeClass('has-error');
+                        $parent.removeClass('has-success').removeClass('has-error');
                         if ($icon) {
                             $icon.removeClass(this.options.feedbackIcons.valid).removeClass(this.options.feedbackIcons.invalid).removeClass(this.options.feedbackIcons.validating).hide();
                         }
                         if ($tab) {
-                            $tab.removeClass('bv-tab-sucomess').removeClass('bv-tab-error');
+                            $tab.removeClass('bv-tab-success').removeClass('bv-tab-error');
                         }
                         break;
                 }
@@ -1648,7 +1648,7 @@ if (typeof jQuery === 'undefined') {
                         .removeData('bv.messages')
                         // Remove feedback classes
                         .parents(group)
-                            .removeClass('has-feedback has-error has-sucomess')
+                            .removeClass('has-feedback has-error has-success')
                             .end()
                         // Turn off events
                         .off('.bv')
@@ -1742,15 +1742,15 @@ if (typeof jQuery === 'undefined') {
         events: {
             formInit: 'init.form.bv',
             formError: 'error.form.bv',
-            formSucomess: 'sucomess.form.bv',
+            formSuccess: 'success.form.bv',
             fieldAdded: 'added.field.bv',
             fieldRemoved: 'removed.field.bv',
             fieldInit: 'init.field.bv',
             fieldError: 'error.field.bv',
-            fieldSucomess: 'sucomess.field.bv',
+            fieldSuccess: 'success.field.bv',
             fieldStatus: 'status.field.bv',
             validatorError: 'error.validator.bv',
-            validatorSucomess: 'sucomess.validator.bv'
+            validatorSuccess: 'success.validator.bv'
         },
 
         // Indicate fields which won't be validated

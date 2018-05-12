@@ -5,7 +5,7 @@
  */
 .btn-default,
 .btn-primary,
-.btn-sucomess,
+.btn-success,
 .btn-info,
 .btn-warning,
 .btn-danger {
@@ -15,13 +15,13 @@
 }
 .btn-default:active,
 .btn-primary:active,
-.btn-sucomess:active,
+.btn-success:active,
 .btn-info:active,
 .btn-warning:active,
 .btn-danger:active,
 .btn-default.active,
 .btn-primary.active,
-.btn-sucomess.active,
+.btn-success.active,
 .btn-info.active,
 .btn-warning.active,
 .btn-danger.active {
@@ -30,19 +30,19 @@
 }
 .btn-default.disabled,
 .btn-primary.disabled,
-.btn-sucomess.disabled,
+.btn-success.disabled,
 .btn-info.disabled,
 .btn-warning.disabled,
 .btn-danger.disabled,
 .btn-default[disabled],
 .btn-primary[disabled],
-.btn-sucomess[disabled],
+.btn-success[disabled],
 .btn-info[disabled],
 .btn-warning[disabled],
 .btn-danger[disabled],
 fieldset[disabled] .btn-default,
 fieldset[disabled] .btn-primary,
-fieldset[disabled] .btn-sucomess,
+fieldset[disabled] .btn-success,
 fieldset[disabled] .btn-info,
 fieldset[disabled] .btn-warning,
 fieldset[disabled] .btn-danger {
@@ -51,7 +51,7 @@ fieldset[disabled] .btn-danger {
 }
 .btn-default .badge,
 .btn-primary .badge,
-.btn-sucomess .badge,
+.btn-success .badge,
 .btn-info .badge,
 .btn-warning .badge,
 .btn-danger .badge {
@@ -145,7 +145,7 @@ fieldset[disabled] .btn-primary.active {
   background-color: #265a88;
   background-image: none;
 }
-.btn-sucomess {
+.btn-success {
   background-image: -webkit-linear-gradient(top, #5cb85c 0%, #419641 100%);
   background-image:      -o-linear-gradient(top, #5cb85c 0%, #419641 100%);
   background-image: -webkit-gradient(linear, left top, left bottom, from(#5cb85c), to(#419641));
@@ -155,34 +155,34 @@ fieldset[disabled] .btn-primary.active {
   background-repeat: repeat-x;
   border-color: #3e8f3e;
 }
-.btn-sucomess:hover,
-.btn-sucomess:focus {
+.btn-success:hover,
+.btn-success:focus {
   background-color: #419641;
   background-position: 0 -15px;
 }
-.btn-sucomess:active,
-.btn-sucomess.active {
+.btn-success:active,
+.btn-success.active {
   background-color: #419641;
   border-color: #3e8f3e;
 }
-.btn-sucomess.disabled,
-.btn-sucomess[disabled],
-fieldset[disabled] .btn-sucomess,
-.btn-sucomess.disabled:hover,
-.btn-sucomess[disabled]:hover,
-fieldset[disabled] .btn-sucomess:hover,
-.btn-sucomess.disabled:focus,
-.btn-sucomess[disabled]:focus,
-fieldset[disabled] .btn-sucomess:focus,
-.btn-sucomess.disabled.focus,
-.btn-sucomess[disabled].focus,
-fieldset[disabled] .btn-sucomess.focus,
-.btn-sucomess.disabled:active,
-.btn-sucomess[disabled]:active,
-fieldset[disabled] .btn-sucomess:active,
-.btn-sucomess.disabled.active,
-.btn-sucomess[disabled].active,
-fieldset[disabled] .btn-sucomess.active {
+.btn-success.disabled,
+.btn-success[disabled],
+fieldset[disabled] .btn-success,
+.btn-success.disabled:hover,
+.btn-success[disabled]:hover,
+fieldset[disabled] .btn-success:hover,
+.btn-success.disabled:focus,
+.btn-success[disabled]:focus,
+fieldset[disabled] .btn-success:focus,
+.btn-success.disabled.focus,
+.btn-success[disabled].focus,
+fieldset[disabled] .btn-success.focus,
+.btn-success.disabled:active,
+.btn-success[disabled]:active,
+fieldset[disabled] .btn-success:active,
+.btn-success.disabled.active,
+.btn-success[disabled].active,
+fieldset[disabled] .btn-success.active {
   background-color: #419641;
   background-image: none;
 }
@@ -410,7 +410,7 @@ fieldset[disabled] .btn-danger.active {
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 1px 2px rgba(0, 0, 0, .05);
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 1px 2px rgba(0, 0, 0, .05);
 }
-.alert-sucomess {
+.alert-success {
   background-image: -webkit-linear-gradient(top, #dff0d8 0%, #c8e5bc 100%);
   background-image:      -o-linear-gradient(top, #dff0d8 0%, #c8e5bc 100%);
   background-image: -webkit-gradient(linear, left top, left bottom, from(#dff0d8), to(#c8e5bc));
@@ -462,7 +462,7 @@ fieldset[disabled] .btn-danger.active {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff337ab7', endColorstr='#ff286090', GradientType=0);
   background-repeat: repeat-x;
 }
-.progress-bar-sucomess {
+.progress-bar-success {
   background-image: -webkit-linear-gradient(top, #5cb85c 0%, #449d44 100%);
   background-image:      -o-linear-gradient(top, #5cb85c 0%, #449d44 100%);
   background-image: -webkit-gradient(linear, left top, left bottom, from(#5cb85c), to(#449d44));
@@ -541,7 +541,7 @@ fieldset[disabled] .btn-danger.active {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff337ab7', endColorstr='#ff2e6da4', GradientType=0);
   background-repeat: repeat-x;
 }
-.panel-sucomess > .panel-heading {
+.panel-success > .panel-heading {
   background-image: -webkit-linear-gradient(top, #dff0d8 0%, #d0e9c6 100%);
   background-image:      -o-linear-gradient(top, #dff0d8 0%, #d0e9c6 100%);
   background-image: -webkit-gradient(linear, left top, left bottom, from(#dff0d8), to(#d0e9c6));

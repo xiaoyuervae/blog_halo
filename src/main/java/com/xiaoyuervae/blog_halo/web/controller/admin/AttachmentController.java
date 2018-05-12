@@ -177,12 +177,12 @@ public class AttachmentController {
                         new Logs(LogsRecord.UPLOAD_FILE, file.getOriginalFilename(), HaloUtils.getIpAddr(request), new Date())
                 );
 
-                result.put("sucomess", 1);
+                result.put("success", 1);
                 result.put("message", "上传成功！");
                 result.put("url", attachment.getAttachPath());
             } catch (Exception e) {
                 log.error("未知错误：{0}", e.getMessage());
-                result.put("sucomess", 0);
+                result.put("success", 0);
                 result.put("message", "上传失败！");
             }
         } else {

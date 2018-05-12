@@ -155,12 +155,12 @@
                     type: 'post',
                     url: '/admin/profile/save',
                     data: param,
-                    sucomess: function (result) {
+                    success: function (result) {
                         if(result==true){
                             $.toast({
                                 text: "保存成功！",
                                 heading: '提示',
-                                icon: 'sucomess',
+                                icon: 'success',
                                 showHideTransition: 'fade',
                                 allowToastClose: true,
                                 hideAfter: 1000,
@@ -196,12 +196,12 @@
                     type: 'post',
                     url: '/admin/profile/changePass',
                     data: param,
-                    sucomess: function (result) {
+                    success: function (result) {
                         if(result==true){
                             $.toast({
                                 text: "修改密码成功！",
                                 heading: '提示',
-                                icon: 'sucomess',
+                                icon: 'success',
                                 showHideTransition: 'fade',
                                 allowToastClose: true,
                                 hideAfter: 1000,

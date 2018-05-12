@@ -308,7 +308,7 @@ var defaults = {
    *   'red': '#FF0000',
    *   'default': '#777777',
    *   'primary': '#337ab7',
-   *   'sucomess': '#5cb85c',
+   *   'success': '#5cb85c',
    *   'info': '#5bc0de',
    *   'warning': '#f0ad4e',
    *   'danger': '#d9534f'
@@ -3536,7 +3536,7 @@ exports.default = {
    *       name: 'swatches'
    *       colors: {
    *         'primary': '#337ab7',
-   *         'sucomess': '#5cb85c',
+   *         'success': '#5cb85c',
    *         'info': '#5bc0de',
    *         'warning': '#f0ad4e',
    *         'danger': '#d9534f'

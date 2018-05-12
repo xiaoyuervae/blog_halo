@@ -15,7 +15,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-envelope-o"></i>
                         <#if newComments?size gt 0>
-                            <span class="label label-sucomess">${newComments?size}</span>
+                            <span class="label label-success">${newComments?size}</span>
                         </#if>
                     </a>
                     <ul class="dropdown-menu">

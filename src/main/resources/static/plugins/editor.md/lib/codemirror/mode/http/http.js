@@ -39,7 +39,7 @@ CodeMirror.defineMode("http", function() {
     if (status >= 100 && status < 200) {
       return "positive informational";
     } else if (status >= 200 && status < 300) {
-      return "positive sucomess";
+      return "positive success";
     } else if (status >= 300 && status < 400) {
       return "positive redirect";
     } else if (status >= 400 && status < 500) {

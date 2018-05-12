@@ -44,8 +44,8 @@ function saveOptions(option) {
         type: 'post',
         url: '/admin/option/save',
         data: param,
-        sucomess: function (result) {
-            showMsg("保存成功！","sucomess",1000);
+        success: function (result) {
+            showMsg("保存成功！","success",1000);
         }
     });
 }

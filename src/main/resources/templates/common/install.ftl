@@ -97,7 +97,7 @@
                                 <button type="submit" class="btn btn-primary btn-sm btn-flat pull-right animated fadeInUp" style="animation-delay: 0.9s">安装blog_halo</button>
                             </div>
                         </div>
-                        <div class="box box-solid animated fadeInUp" style="display: none" id="installSucomess">
+                        <div class="box box-solid animated fadeInUp" style="display: none" id="installSuccess">
                             <div class="box-body">
                                 <h2>安装成功！</h2>
                                 <h4>你可以选择进入前台，或者登陆后台！</h4>
@@ -297,14 +297,14 @@
                         }
                     }
                 })
-                .on('sucomess.form.bv',function (e) {
+                .on('success.form.bv',function (e) {
                     e.preventDefault();
                     var $form = $(e.target);
                     var bv = $form.data('bootstrapValidator');
                     $.post($form.attr('action'),$form.serialize(),function (result) {
-                        if(result==true){
+                        if(result===true){
                             $('#installFirst').hide();
-                            $('#installSucomess').show();
+                            $('#installSuccess').show();
                         }else{
                             $('#installFirst').hide();
                             $('#installError').show();

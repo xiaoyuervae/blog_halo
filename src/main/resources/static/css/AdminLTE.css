@@ -1300,15 +1300,15 @@ a:focus {
   -moz-appearance: none;
   appearance: none;
 }
-.form-group.has-sucomess label {
+.form-group.has-success label {
   color: #00a65a;
 }
-.form-group.has-sucomess .form-control,
-.form-group.has-sucomess .input-group-addon {
+.form-group.has-success .form-control,
+.form-group.has-success .input-group-addon {
   border-color: #00a65a;
   box-shadow: none;
 }
-.form-group.has-sucomess .help-block {
+.form-group.has-success .help-block {
   color: #00a65a;
 }
 .form-group.has-warning label {
@@ -1459,17 +1459,17 @@ a:focus {
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 .progress-bar-green,
-.progress-bar-sucomess {
+.progress-bar-success {
   background-color: #00a65a;
 }
 .progress-striped .progress-bar-green,
-.progress-striped .progress-bar-sucomess {
+.progress-striped .progress-bar-success {
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 .progress-striped .progress-bar-green,
-.progress-striped .progress-bar-sucomess {
+.progress-striped .progress-bar-success {
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
@@ -1625,7 +1625,7 @@ a:focus {
 .box.box-warning {
   border-top-color: #f39c12;
 }
-.box.box-sucomess {
+.box.box-success {
   border-top-color: #00a65a;
 }
 .box.box-default {
@@ -1722,16 +1722,16 @@ a:focus {
 .box.box-solid.box-warning > .box-header .btn {
   color: #ffffff;
 }
-.box.box-solid.box-sucomess {
+.box.box-solid.box-success {
   border: 1px solid #00a65a;
 }
-.box.box-solid.box-sucomess > .box-header {
+.box.box-solid.box-success > .box-header {
   color: #ffffff;
   background: #00a65a;
   background-color: #00a65a;
 }
-.box.box-solid.box-sucomess > .box-header a,
-.box.box-solid.box-sucomess > .box-header .btn {
+.box.box-solid.box-success > .box-header a,
+.box.box-solid.box-success > .box-header .btn {
   color: #ffffff;
 }
 .box.box-solid > .box-header > .box-tools .btn {
@@ -2024,7 +2024,7 @@ a:focus {
 .todo-list .info {
   border-left-color: #00c0ef;
 }
-.todo-list .sucomess {
+.todo-list .success {
   border-left-color: #00a65a;
 }
 .todo-list .primary {
@@ -2362,13 +2362,13 @@ a:focus {
 .btn-primary.hover {
   background-color: #367fa9;
 }
-.btn-sucomess {
+.btn-success {
   background-color: #00a65a;
   border-color: #008d4c;
 }
-.btn-sucomess:hover,
-.btn-sucomess:active,
-.btn-sucomess.hover {
+.btn-success:hover,
+.btn-success:active,
+.btn-success.hover {
   background-color: #008d4c;
 }
 .btn-info {
@@ -2491,7 +2491,7 @@ a:focus {
 .callout.callout-info {
   border-color: #0097bc;
 }
-.callout.callout-sucomess {
+.callout.callout-success {
   border-color: #00733e;
 }
 /*
@@ -2520,7 +2520,7 @@ a:focus {
   color: #fff;
   text-decoration: underline;
 }
-.alert-sucomess {
+.alert-success {
   border-color: #008d4c;
 }
 .alert-danger,
@@ -2693,7 +2693,7 @@ a:focus {
 .nav-tabs-custom.tab-warning > .nav-tabs > li.active {
   border-top-color: #f39c12;
 }
-.nav-tabs-custom.tab-sucomess > .nav-tabs > li.active {
+.nav-tabs-custom.tab-success > .nav-tabs > li.active {
   border-top-color: #00a65a;
 }
 .nav-tabs-custom.tab-default > .nav-tabs > li.active {
@@ -3048,13 +3048,13 @@ table.text-center th {
 .direct-chat-info .right > .direct-chat-text:before {
   border-left-color: #00c0ef;
 }
-.direct-chat-sucomess .right > .direct-chat-text {
+.direct-chat-success .right > .direct-chat-text {
   background: #00a65a;
   border-color: #00a65a;
   color: #ffffff;
 }
-.direct-chat-sucomess .right > .direct-chat-text:after,
-.direct-chat-sucomess .right > .direct-chat-text:before {
+.direct-chat-success .right > .direct-chat-text:after,
+.direct-chat-success .right > .direct-chat-text:before {
   border-left-color: #00a65a;
 }
 /*
@@ -3144,8 +3144,8 @@ table.text-center th {
 .modal-info .modal-footer {
   border-color: #0097bc;
 }
-.modal-sucomess .modal-header,
-.modal-sucomess .modal-footer {
+.modal-success .modal-header,
+.modal-success .modal-footer {
   border-color: #00733e;
 }
 .modal-danger .modal-header,
@@ -5099,8 +5099,8 @@ table.text-center th {
 .callout.callout-danger,
 .callout.callout-warning,
 .callout.callout-info,
-.callout.callout-sucomess,
-.alert-sucomess,
+.callout.callout-success,
+.alert-success,
 .alert-danger,
 .alert-error,
 .alert-warning,
@@ -5109,7 +5109,7 @@ table.text-center th {
 .label-info,
 .label-warning,
 .label-primary,
-.label-sucomess,
+.label-success,
 .modal-primary .modal-body,
 .modal-primary .modal-header,
 .modal-primary .modal-footer,
@@ -5119,9 +5119,9 @@ table.text-center th {
 .modal-info .modal-body,
 .modal-info .modal-header,
 .modal-info .modal-footer,
-.modal-sucomess .modal-body,
-.modal-sucomess .modal-header,
-.modal-sucomess .modal-footer,
+.modal-success .modal-body,
+.modal-success .modal-header,
+.modal-success .modal-footer,
 .modal-danger .modal-body,
 .modal-danger .modal-header,
 .modal-danger .modal-footer {
@@ -5168,10 +5168,10 @@ table.text-center th {
   background-color: #3c8dbc !important;
 }
 .bg-green,
-.callout.callout-sucomess,
-.alert-sucomess,
-.label-sucomess,
-.modal-sucomess .modal-body {
+.callout.callout-success,
+.alert-success,
+.label-success,
+.modal-success .modal-body {
   background-color: #00a65a !important;
 }
 .bg-navy {
@@ -5229,8 +5229,8 @@ table.text-center th {
   background-color: #357ca5 !important;
 }
 .bg-green-active,
-.modal-sucomess .modal-header,
-.modal-sucomess .modal-footer {
+.modal-success .modal-header,
+.modal-success .modal-footer {
   background-color: #008d4c !important;
 }
 .bg-navy-active {
