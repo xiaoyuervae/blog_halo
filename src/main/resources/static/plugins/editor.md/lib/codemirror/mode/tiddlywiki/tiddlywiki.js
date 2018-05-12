@@ -359,7 +359,7 @@ CodeMirror.defineMode("tiddlywiki", function () {
       return style;
     },
 
-    electricomhars: ""
+    electricChars: ""
   };
 });
 

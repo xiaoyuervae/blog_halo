@@ -25,7 +25,7 @@
       var inQuote = eolState.quote !== false;
 
       if (!ranges[i].empty() || (!inList && !inQuote) || !(match = cm.getLine(pos.line).match(listRE))) {
-        cm.execomommand("newlineAndIndent");
+        cm.execCommand("newlineAndIndent");
         return;
       }
       if (cm.getLine(pos.line).match(emptyListRE)) {

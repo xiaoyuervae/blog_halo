@@ -182,7 +182,7 @@ CodeMirror.defineMode("d", function(config, parserConfig) {
       else return ctx.indented + (closing ? 0 : indentUnit);
     },
 
-    electricomhars: "{}"
+    electricChars: "{}"
   };
 });
 

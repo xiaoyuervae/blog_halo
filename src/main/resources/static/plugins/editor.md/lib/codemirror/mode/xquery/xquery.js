@@ -424,7 +424,7 @@ CodeMirror.defineMode("xquery", function() {
     startState: function() {
       return {
         tokenize: tokenBase,
-        com: [],
+        cc: [],
         stack: []
       };
     },

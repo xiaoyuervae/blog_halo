@@ -100,7 +100,7 @@ CodeMirror.defineMode("pascal", function() {
       return style;
     },
 
-    electricomhars: "{}"
+    electricChars: "{}"
   };
 });
 

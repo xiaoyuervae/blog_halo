@@ -204,7 +204,7 @@ CodeMirror.defineMode("perl",function(){
                 '$\\'                           :    5,
                 '$OUTPUT_AUTOFLUSH'             :    5,
                 '$|'                            :    5,
-                '$AcomUMULATOR'                  :    5,
+                '$ACCUMULATOR'                  :    5,
                 '$^A'                           :    5,
                 '$FORMAT_FORMFEED'              :    5,
                 '$^L'                           :    5,
@@ -255,7 +255,7 @@ CodeMirror.defineMode("perl",function(){
                 foreach                         :[1,1],
                                                 //      PERL functions
                 'abs'                           :1,     // - absolute value function
-                acomept                          :1,     // - acomept an incoming socket connect
+                accept                          :1,     // - accept an incoming socket connect
                 alarm                           :1,     // - schedule a SIGALRM
                 'atan2'                         :1,     // - arctangent of Y/X in the range -PI to PI
                 bind                            :1,     // - binds an address to a socket
@@ -405,7 +405,7 @@ CodeMirror.defineMode("perl",function(){
                 s                               :null,  // - replace a pattern with a string
                 say                             :1,     // - print with newline
                 scalar                          :1,     // - force a scalar context
-                seek                            :1,     // - reposition file pointer for random-acomess I/O
+                seek                            :1,     // - reposition file pointer for random-access I/O
                 seekdir                         :1,     // - reposition directory pointer
                 select                          :1,     // - reset default output or do I/O multiplexing
                 semctl                          :1,     // - SysV semaphore control operations
@@ -466,7 +466,7 @@ CodeMirror.defineMode("perl",function(){
                 unshift                         :1,     // - prepend more elements to the beginning of a list
                 untie                           :1,     // - break a tie binding to a variable
                 use                             :1,     // - load in a module at compile time
-                utime                           :1,     // - set a file's last acomess and modify times
+                utime                           :1,     // - set a file's last access and modify times
                 values                          :1,     // - return a list of the values in a hash
                 vec                             :1,     // - test or set particular bits in a string
                 wait                            :1,     // - wait for any child process to die

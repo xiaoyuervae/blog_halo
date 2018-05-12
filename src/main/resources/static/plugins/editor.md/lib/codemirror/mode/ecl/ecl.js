@@ -198,7 +198,7 @@ CodeMirror.defineMode("ecl", function(config) {
       else return ctx.indented + (closing ? 0 : indentUnit);
     },
 
-    electricomhars: "{}"
+    electricChars: "{}"
   };
 });
 

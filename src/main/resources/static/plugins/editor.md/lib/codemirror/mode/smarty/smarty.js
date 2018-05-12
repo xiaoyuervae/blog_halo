@@ -212,7 +212,7 @@ CodeMirror.defineMode("smarty", function(config) {
       state.last = last;
       return style;
     },
-    electricomhars: ""
+    electricChars: ""
   };
 });
 

@@ -80,34 +80,34 @@
      "    [variable-3 1. ][property [x]]][variable-3  foo]"); // Valid; can be nested
 
   MT("SHA",
-     "foo [link be6a8com1c1ecfe9489fb51e4869af15a13fc2cd2] bar");
+     "foo [link be6a8cc1c1ecfe9489fb51e4869af15a13fc2cd2] bar");
 
   MT("SHAEmphasis",
-     "[em *foo ][em&link be6a8com1c1ecfe9489fb51e4869af15a13fc2cd2][em *]");
+     "[em *foo ][em&link be6a8cc1c1ecfe9489fb51e4869af15a13fc2cd2][em *]");
 
   MT("shortSHA",
-     "foo [link be6a8com] bar");
+     "foo [link be6a8cc] bar");
 
   MT("tooShortSHA",
      "foo be6a8c bar");
 
   MT("longSHA",
-     "foo be6a8com1c1ecfe9489fb51e4869af15a13fc2cd22 bar");
+     "foo be6a8cc1c1ecfe9489fb51e4869af15a13fc2cd22 bar");
 
   MT("badSHA",
-     "foo be6a8com1c1ecfe9489fb51e4869af15a13fc2cg2 bar");
+     "foo be6a8cc1c1ecfe9489fb51e4869af15a13fc2cg2 bar");
 
   MT("userSHA",
-     "foo [link bar@be6a8com1c1ecfe9489fb51e4869af15a13fc2cd2] hello");
+     "foo [link bar@be6a8cc1c1ecfe9489fb51e4869af15a13fc2cd2] hello");
 
   MT("userSHAEmphasis",
-     "[em *foo ][em&link bar@be6a8com1c1ecfe9489fb51e4869af15a13fc2cd2][em *]");
+     "[em *foo ][em&link bar@be6a8cc1c1ecfe9489fb51e4869af15a13fc2cd2][em *]");
 
   MT("userProjectSHA",
-     "foo [link bar/hello@be6a8com1c1ecfe9489fb51e4869af15a13fc2cd2] world");
+     "foo [link bar/hello@be6a8cc1c1ecfe9489fb51e4869af15a13fc2cd2] world");
 
   MT("userProjectSHAEmphasis",
-     "[em *foo ][em&link bar/hello@be6a8com1c1ecfe9489fb51e4869af15a13fc2cd2][em *]");
+     "[em *foo ][em&link bar/hello@be6a8cc1c1ecfe9489fb51e4869af15a13fc2cd2][em *]");
 
   MT("num",
      "foo [link #1] bar");
@@ -164,7 +164,7 @@
      "[comment code]",
      "[comment ```]",
      "",
-     "Commit: [link be6a8com1c1ecfe9489fb51e4869af15a13fc2cd2]",
+     "Commit: [link be6a8cc1c1ecfe9489fb51e4869af15a13fc2cd2]",
      "Issue: [link #1]",
      "Link: [link http://www.example.com/]");
 

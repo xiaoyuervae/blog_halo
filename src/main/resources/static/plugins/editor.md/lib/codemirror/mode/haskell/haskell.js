@@ -230,7 +230,7 @@ CodeMirror.defineMode("haskell", function(_config, modeConfig) {
       "round", "scaleFloat", "scanl", "scanl1", "scanr", "scanr1", "seq",
       "sequence", "sequence_", "show", "showChar", "showList", "showParen",
       "showString", "shows", "showsPrec", "significand", "signum", "sin",
-      "sinh", "snd", "span", "splitAt", "sqrt", "subtract", "sucom", "sum",
+      "sinh", "snd", "span", "splitAt", "sqrt", "subtract", "succ", "sum",
       "tail", "take", "takeWhile", "tan", "tanh", "toEnum", "toInteger",
       "toRational", "truncate", "uncurry", "undefined", "unlines", "until",
       "unwords", "unzip", "unzip3", "userError", "words", "writeFile", "zip",

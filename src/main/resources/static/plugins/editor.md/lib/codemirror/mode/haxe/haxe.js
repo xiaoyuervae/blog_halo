@@ -28,7 +28,7 @@ CodeMirror.defineMode("haxe", function(config, parserConfig) {
     "public": attribute, "private": attribute, "cast": kw("cast"), "import": kw("import"), "macro": kw("macro"),
       "function": kw("function"), "catch": kw("catch"), "untyped": kw("untyped"), "callback": kw("cb"),
       "for": kw("for"), "switch": kw("switch"), "case": kw("case"), "default": kw("default"),
-      "in": operator, "never": kw("property_acomess"), "trace":kw("trace"),
+      "in": operator, "never": kw("property_access"), "trace":kw("trace"),
     "class": type, "abstract":type, "enum":type, "interface":type, "typedef":type, "extends":type, "implements":type, "dynamic":type,
       "true": atom, "false": atom, "null": atom
     };
@@ -161,19 +161,19 @@ CodeMirror.defineMode("haxe", function(config, parserConfig) {
   }
 
   function parseHaxe(state, style, type, content, stream) {
-    var com = state.com;
+    var cc = state.cc;
     // Communicate our context to the combinators.
     // (Less wasteful than consing up a hundred closures on every call.)
-    cx.state = state; cx.stream = stream; cx.marked = null, cx.com = com;
+    cx.state = state; cx.stream = stream; cx.marked = null, cx.cc = cc;
 
     if (!state.lexical.hasOwnProperty("align"))
       state.lexical.align = true;
 
     while(true) {
-      var combinator = com.length ? com.pop() : statement;
+      var combinator = cc.length ? cc.pop() : statement;
       if (combinator(type, content)) {
-        while(com.length && com[com.length - 1].lex)
-          com.pop()();
+        while(cc.length && cc[cc.length - 1].lex)
+          cc.pop()();
         if (cx.marked) return cx.marked;
         if (type == "variable" && inScope(state, content)) return "variable-2";
     if (type == "variable" && imported(state, content)) return "variable-3";
@@ -200,9 +200,9 @@ CodeMirror.defineMode("haxe", function(config, parserConfig) {
   }
   // Combinator utils
 
-  var cx = {state: null, column: null, marked: null, com: null};
+  var cx = {state: null, column: null, marked: null, cc: null};
   function pass() {
-    for (var i = arguments.length - 1; i >= 0; i--) cx.com.push(arguments[i]);
+    for (var i = arguments.length - 1; i >= 0; i--) cx.cc.push(arguments[i]);
   }
   function cont() {
     pass.apply(null, arguments);
@@ -400,7 +400,7 @@ CodeMirror.defineMode("haxe", function(config, parserConfig) {
         tokenize: haxeTokenBase,
         reAllowed: true,
         kwAllowed: true,
-        com: [],
+        cc: [],
         lexical: new HaxeLexical((basecolumn || 0) - indentUnit, 0, "block", false),
         localVars: parserConfig.localVars,
     importedtypes: defaulttypes,
@@ -437,7 +437,7 @@ CodeMirror.defineMode("haxe", function(config, parserConfig) {
       else return lexical.indented + (closing ? 0 : indentUnit);
     },
 
-    electricomhars: "{}",
+    electricChars: "{}",
     blockCommentStart: "/*",
     blockCommentEnd: "*/",
     lineComment: "//"

@@ -98,7 +98,7 @@ div.CodeMirror-overwrite div.CodeMirror-cursor {}
 .cm-tab { display: inline-block; text-decoration: inherit; }
 
 .CodeMirror-ruler {
-  border-left: 1px solid #comc;
+  border-left: 1px solid #ccc;
   position: absolute;
 }
 

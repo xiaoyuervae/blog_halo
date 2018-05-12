@@ -421,7 +421,7 @@
 	},
 	{
 		"name":"&amp;acute;",
-		"description":"acute acoment - spacing acute"
+		"description":"acute accent - spacing acute"
 	},
 	{
 		"name":"&amp;Agrave;",
@@ -452,7 +452,7 @@
 		"description":"latin capital letter AE"
 	},
 	{
-		"name":"&amp;comedil;",
+		"name":"&amp;Ccedil;",
 		"description":"latin capital letter C with cedilla"
 	},
 	{
@@ -648,7 +648,7 @@
 		"description":"latin capital letter ae"
 	},
 	{
-		"name":"&amp;comedil;",
+		"name":"&amp;ccedil;",
 		"description":"latin capital letter c with cedilla"
 	},
 	{
@@ -811,7 +811,7 @@
 
 	{
 		"name":"&amp;#96;",
-		"description":"grave acoment"
+		"description":"grave accent"
 	},
 	{
 		"name":"&amp;#97;",

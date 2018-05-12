@@ -30,7 +30,7 @@ CodeMirror.defineMode("verilog", function(config, parserConfig) {
    * Keywords from IEEE 1800-2012
    */
   var keywords = words(
-    "acomept_on alias always always_comb always_ff always_latch and assert assign assume automatic before begin bind " +
+    "accept_on alias always always_comb always_ff always_latch and assert assign assume automatic before begin bind " +
     "bins binsof bit break buf bufif0 bufif1 byte case casex casez cell chandle checker class clocking cmos config " +
     "const constraint context continue cover covergroup coverpoint cross deassign default defparam design disable " +
     "dist do edge else end endcase endchecker endclass endclocking endconfig endfunction endgenerate endgroup " +
@@ -44,7 +44,7 @@ CodeMirror.defineMode("verilog", function(config, parserConfig) {
     "pulsestyle_ondetect pulsestyle_onevent pure rand randc randcase randsequence rcmos real realtime ref reg " +
     "reject_on release repeat restrict return rnmos rpmos rtran rtranif0 rtranif1 s_always s_eventually s_nexttime " +
     "s_until s_until_with scalared sequence shortint shortreal showcancelled signed small soft solve specify " +
-    "specparam static string strong strong0 strong1 struct super supply0 supply1 sync_acomept_on sync_reject_on " +
+    "specparam static string strong strong0 strong1 struct super supply0 supply1 sync_accept_on sync_reject_on " +
     "table tagged task this throughout time timeprecision timeunit tran tranif0 tranif1 tri tri0 tri1 triand trior " +
     "trireg type typedef union unique unique0 unsigned until until_with untyped use uwire var vectored virtual void " +
     "wait wait_order wand weak weak0 weak1 while wildcard wire with within wor xnor xor");
@@ -262,7 +262,7 @@ CodeMirror.defineMode("verilog", function(config, parserConfig) {
   }
 
   function buildElectricInputRegEx() {
-    // Reindentation should ocomur on any bracket char: {}()[]
+    // Reindentation should occur on any bracket char: {}()[]
     // or on a match of any of the block closing keywords, at
     // the end of a line
     var allClosings = [];

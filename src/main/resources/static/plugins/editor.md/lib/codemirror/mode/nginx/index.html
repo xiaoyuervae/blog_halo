@@ -65,7 +65,7 @@ server {
     expires 30d;                    ## Assume all files are cachable
   }
 
-  ## These locations would be hidden by .htacomess normally
+  ## These locations would be hidden by .htaccess normally
   location /app/                { deny all; }
   location /includes/           { deny all; }
   location /lib/                { deny all; }
@@ -80,7 +80,7 @@ server {
     autoindex            on;
   }
 
-  location  /. { ## Disable .htacomess and other hidden files
+  location  /. { ## Disable .htaccess and other hidden files
     return 404;
   }
 
@@ -131,7 +131,7 @@ server {
     expires 30d; ## Assume all files are cachable
   }
 
-  ## These locations would be hidden by .htacomess normally
+  ## These locations would be hidden by .htaccess normally
   location /app/                { deny all; }
   location /includes/           { deny all; }
   location /lib/                { deny all; }
@@ -146,7 +146,7 @@ server {
     autoindex            on;
   }
 
-  location  /. { ## Disable .htacomess and other hidden files
+  location  /. { ## Disable .htaccess and other hidden files
     return 404;
   }
 

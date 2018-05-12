@@ -99,7 +99,7 @@
   MT("periodSentence",
      "X[tag \\@]. The");
 
-  MT("italicomorrection",
+  MT("italicCorrection",
      "[bracket {][tag \\em] If[tag \\/][bracket }] I");
 
   MT("tagBracket",

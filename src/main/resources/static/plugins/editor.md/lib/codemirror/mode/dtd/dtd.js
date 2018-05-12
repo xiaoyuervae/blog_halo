@@ -133,7 +133,7 @@ CodeMirror.defineMode("dtd", function(config) {
       return state.baseIndent + n * indentUnit;
     },
 
-    electricomhars: "]>"
+    electricChars: "]>"
   };
 });
 

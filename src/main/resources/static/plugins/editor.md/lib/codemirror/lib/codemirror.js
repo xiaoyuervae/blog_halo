@@ -323,7 +323,7 @@
     cm.display.sizer.style.marginLeft = width + "px";
   }
 
-  // Compute the character length of a line, taking into acomount
+  // Compute the character length of a line, taking into account
   // collapsed ranges (see markText) that might hide parts, and join
   // other lines onto it.
   function lineLength(line) {
@@ -606,7 +606,7 @@
   }
 
   // Computes display.scroller.scrollLeft + display.gutters.offsetWidth,
-  // but using getBoundingClientRect to get a sub-pixel-acomurate
+  // but using getBoundingClientRect to get a sub-pixel-accurate
   // result.
   function compensateForHScroll(display) {
     return display.scroller.getBoundingClientRect().left - display.sizer.getBoundingClientRect().left;
@@ -1106,14 +1106,14 @@
       makeChange(cm.doc, changeEvent);
       signalLater(cm, "inputRead", cm, changeEvent);
       // When an 'electric' character is inserted, immediately trigger a reindent
-      if (inserted && !cm.state.pasteIncoming && cm.options.electricomhars &&
+      if (inserted && !cm.state.pasteIncoming && cm.options.electricChars &&
           cm.options.smartIndent && range.head.ch < 100 &&
           (!i || sel.ranges[i - 1].head.line != range.head.line)) {
         var mode = cm.getModeAt(range.head);
         var end = changeEnd(changeEvent);
-        if (mode.electricomhars) {
-          for (var j = 0; j < mode.electricomhars.length; j++)
-            if (inserted.indexOf(mode.electricomhars.charAt(j)) > -1) {
+        if (mode.electricChars) {
+          for (var j = 0; j < mode.electricChars.length; j++)
+            if (inserted.indexOf(mode.electricChars.charAt(j)) > -1) {
               indentLine(cm, end.line, "smart");
               break;
             }
@@ -1161,7 +1161,7 @@
     this.polling = new Delayed();
     // Tracks when input.reset has punted to just putting a short
     // string into the textarea instead of the full selection.
-    this.inacomurateSelection = false;
+    this.inaccurateSelection = false;
     // Used to work around IE issue with selection being forgotten when focus moves away from textarea
     this.hasSelection = false;
   };
@@ -1202,7 +1202,7 @@
 
       on(te, "paste", function() {
         // Workaround for webkit bug https://bugs.webkit.org/show_bug.cgi?id=90206
-        // Add a char to the end of textarea before paste ocomur so that
+        // Add a char to the end of textarea before paste occur so that
         // selection doesn't span to the end of textarea.
         if (webkit && !cm.state.fakedLastChar && !(new Date - cm.state.lastMiddleDown < 200)) {
           var start = te.selectionStart, end = te.selectionEnd;
@@ -1222,9 +1222,9 @@
       function prepareCopyCut(e) {
         if (cm.somethingSelected()) {
           lastCopied = cm.getSelections();
-          if (input.inacomurateSelection) {
+          if (input.inaccurateSelection) {
             input.prevInput = "";
-            input.inacomurateSelection = false;
+            input.inaccurateSelection = false;
             te.value = lastCopied.join("\n");
             selectInput(te);
           }
@@ -1302,7 +1302,7 @@
         this.prevInput = this.textarea.value = "";
         if (ie && ie_version >= 9) this.hasSelection = null;
       }
-      this.inacomurateSelection = minimal;
+      this.inaccurateSelection = minimal;
     },
 
     getField: function() { return this.textarea; },
@@ -2888,7 +2888,7 @@
       forceUpdate: false,      // Used to force a redraw
       updateInput: null,       // Whether to reset the input textarea
       typing: false,           // Whether this reset should be careful to leave existing text (for compositing)
-      changeObjs: null,        // Acomumulated changes, for firing change events
+      changeObjs: null,        // Accumulated changes, for firing change events
       cursorActivityHandlers: null, // Set of handlers to fire cursorActivity on
       cursorActivityCalled: 0, // Tracks which cursorActivity handlers have been called already
       selectionChanged: false, // Whether the selection needs to be redrawn
@@ -3815,7 +3815,7 @@
 
   var wheelSamples = 0, wheelPixelsPerUnit = null;
   // Fill in a browser-detected starting value on browsers where we
-  // know one. These don't have to be acomurate -- the result of them
+  // know one. These don't have to be accurate -- the result of them
   // being wrong would just be a slight flicker on the first wheel
   // scroll (if it is large enough).
   if (ie) wheelPixelsPerUnit = -.53;
@@ -4419,7 +4419,7 @@
   }
 
   // Scroll a given position into view (immediately), verifying that
-  // it actually became visible (as line heights are acomurately
+  // it actually became visible (as line heights are accurately
   // measured, the position of something may 'drift' during drawing).
   function scrollPosIntoView(cm, pos, end, margin) {
     if (margin == null) margin = 0;
@@ -4968,7 +4968,7 @@
     triggerOnKeyPress: methodOp(onKeyPress),
     triggerOnKeyUp: onKeyUp,
 
-    execomommand: function(cmd) {
+    execCommand: function(cmd) {
       if (commands.hasOwnProperty(cmd))
         return commands[cmd](this);
     },
@@ -5191,7 +5191,7 @@
     cm.refresh();
   }, true);
   option("specialCharPlaceholder", defaultSpecialCharPlaceholder, function(cm) {cm.refresh();}, true);
-  option("electricomhars", true);
+  option("electricChars", true);
   option("inputStyle", mobile ? "contenteditable" : "textarea", function() {
     throw new Error("inputStyle can not (yet) be changed in a running editor"); // FIXME
   }, true);
@@ -5307,7 +5307,7 @@
     else return spec || {name: "null"};
   };
 
-  // Given a mode spec (anything that resolveMode acomepts), find and
+  // Given a mode spec (anything that resolveMode accepts), find and
   // initialize an actual mode object.
   CodeMirror.getMode = function(options, spec) {
     var spec = CodeMirror.resolveMode(spec);
@@ -5519,7 +5519,7 @@
     },
     defaultTab: function(cm) {
       if (cm.somethingSelected()) cm.indentSelection("add");
-      else cm.execomommand("insertTab");
+      else cm.execCommand("insertTab");
     },
     transposeChars: function(cm) {
       runInOp(cm, function() {
@@ -5755,7 +5755,7 @@
   // STRING STREAM
 
   // Fed to the mode parsers, provides helper functions to make
-  // parsers more sucominct.
+  // parsers more succinct.
 
   var StringStream = CodeMirror.StringStream = function(string, tabSize) {
     this.pos = this.start = 0;
@@ -6870,7 +6870,7 @@
   }
 
   // Outputs a number of spans to make up a line, taking highlighting
-  // and marked text into acomount.
+  // and marked text into account.
   function insertLineContent(line, builder, styles) {
     var spans = line.markedSpans, allText = line.text, at = 0;
     if (!spans) {
@@ -8022,7 +8022,7 @@
     this.id = setTimeout(f, ms);
   };
 
-  // Counts the column offset in a string, taking tabs into acomount.
+  // Counts the column offset in a string, taking tabs into account.
   // Used mostly to find indentation.
   var countColumn = CodeMirror.countColumn = function(string, end, tabSize, startIndex, startValue) {
     if (end == null) {
@@ -8108,7 +8108,7 @@
     return function(){return f.apply(null, args);};
   }
 
-  var nonASCIISingleCaseWordChar = /[\u00df\u0590-\u05f4\u0600-\u06ff\u3040-\u309f\u30a0-\u30ff\u3400-\u4db5\u4e00-\u9fcom\uac00-\ud7af]/;
+  var nonASCIISingleCaseWordChar = /[\u00df\u0590-\u05f4\u0600-\u06ff\u3040-\u309f\u30a0-\u30ff\u3400-\u4db5\u4e00-\u9fcc\uac00-\ud7af]/;
   var isWordCharBasic = CodeMirror.isWordChar = function(ch) {
     return /\w/.test(ch) || ch > "\x80" &&
       (ch.toUpperCase() != ch.toLowerCase() || nonASCIISingleCaseWordChar.test(ch));
@@ -8129,7 +8129,7 @@
   // as editing and measuring is concerned. This is not fully correct,
   // since some scripts/fonts/browsers also treat other configurations
   // of code points as a group.
-  var extendingChars = /[\u0300-\u036f\u0483-\u0489\u0591-\u05bd\u05bf\u05c1\u05c2\u05c4\u05c5\u05c7\u0610-\u061a\u064b-\u065e\u0670\u06d6-\u06dc\u06de-\u06e4\u06e7\u06e8\u06ea-\u06ed\u0711\u0730-\u074a\u07a6-\u07b0\u07eb-\u07f3\u0816-\u0819\u081b-\u0823\u0825-\u0827\u0829-\u082d\u0900-\u0902\u093c\u0941-\u0948\u094d\u0951-\u0955\u0962\u0963\u0981\u09bc\u09be\u09c1-\u09c4\u09cd\u09d7\u09e2\u09e3\u0a01\u0a02\u0a3c\u0a41\u0a42\u0a47\u0a48\u0a4b-\u0a4d\u0a51\u0a70\u0a71\u0a75\u0a81\u0a82\u0abc\u0ac1-\u0ac5\u0ac7\u0ac8\u0acd\u0ae2\u0ae3\u0b01\u0b3c\u0b3e\u0b3f\u0b41-\u0b44\u0b4d\u0b56\u0b57\u0b62\u0b63\u0b82\u0bbe\u0bc0\u0bcd\u0bd7\u0c3e-\u0c40\u0c46-\u0c48\u0c4a-\u0c4d\u0c55\u0c56\u0c62\u0c63\u0cbc\u0cbf\u0com2\u0com6\u0comc\u0comd\u0cd5\u0cd6\u0ce2\u0ce3\u0d3e\u0d41-\u0d44\u0d4d\u0d57\u0d62\u0d63\u0dca\u0dcf\u0dd2-\u0dd4\u0dd6\u0ddf\u0e31\u0e34-\u0e3a\u0e47-\u0e4e\u0eb1\u0eb4-\u0eb9\u0ebb\u0ebc\u0ec8-\u0ecd\u0f18\u0f19\u0f35\u0f37\u0f39\u0f71-\u0f7e\u0f80-\u0f84\u0f86\u0f87\u0f90-\u0f97\u0f99-\u0fbc\u0fc6\u102d-\u1030\u1032-\u1037\u1039\u103a\u103d\u103e\u1058\u1059\u105e-\u1060\u1071-\u1074\u1082\u1085\u1086\u108d\u109d\u135f\u1712-\u1714\u1732-\u1734\u1752\u1753\u1772\u1773\u17b7-\u17bd\u17c6\u17c9-\u17d3\u17dd\u180b-\u180d\u18a9\u1920-\u1922\u1927\u1928\u1932\u1939-\u193b\u1a17\u1a18\u1a56\u1a58-\u1a5e\u1a60\u1a62\u1a65-\u1a6c\u1a73-\u1a7c\u1a7f\u1b00-\u1b03\u1b34\u1b36-\u1b3a\u1b3c\u1b42\u1b6b-\u1b73\u1b80\u1b81\u1ba2-\u1ba5\u1ba8\u1ba9\u1c2c-\u1c33\u1c36\u1c37\u1cd0-\u1cd2\u1cd4-\u1ce0\u1ce2-\u1ce8\u1ced\u1dc0-\u1de6\u1dfd-\u1dff\u200c\u200d\u20d0-\u20f0\u2cef-\u2cf1\u2de0-\u2dff\u302a-\u302f\u3099\u309a\ua66f-\ua672\ua67c\ua67d\ua6f0\ua6f1\ua802\ua806\ua80b\ua825\ua826\ua8c4\ua8e0-\ua8f1\ua926-\ua92d\ua947-\ua951\ua980-\ua982\ua9b3\ua9b6-\ua9b9\ua9bc\uaa29-\uaa2e\uaa31\uaa32\uaa35\uaa36\uaa43\uaa4c\uaab0\uaab2-\uaab4\uaab7\uaab8\uaabe\uaabf\uaac1\uabe5\uabe8\uabed\udc00-\udfff\ufb1e\ufe00-\ufe0f\ufe20-\ufe26\uff9e\uff9f]/;
+  var extendingChars = /[\u0300-\u036f\u0483-\u0489\u0591-\u05bd\u05bf\u05c1\u05c2\u05c4\u05c5\u05c7\u0610-\u061a\u064b-\u065e\u0670\u06d6-\u06dc\u06de-\u06e4\u06e7\u06e8\u06ea-\u06ed\u0711\u0730-\u074a\u07a6-\u07b0\u07eb-\u07f3\u0816-\u0819\u081b-\u0823\u0825-\u0827\u0829-\u082d\u0900-\u0902\u093c\u0941-\u0948\u094d\u0951-\u0955\u0962\u0963\u0981\u09bc\u09be\u09c1-\u09c4\u09cd\u09d7\u09e2\u09e3\u0a01\u0a02\u0a3c\u0a41\u0a42\u0a47\u0a48\u0a4b-\u0a4d\u0a51\u0a70\u0a71\u0a75\u0a81\u0a82\u0abc\u0ac1-\u0ac5\u0ac7\u0ac8\u0acd\u0ae2\u0ae3\u0b01\u0b3c\u0b3e\u0b3f\u0b41-\u0b44\u0b4d\u0b56\u0b57\u0b62\u0b63\u0b82\u0bbe\u0bc0\u0bcd\u0bd7\u0c3e-\u0c40\u0c46-\u0c48\u0c4a-\u0c4d\u0c55\u0c56\u0c62\u0c63\u0cbc\u0cbf\u0cc2\u0cc6\u0ccc\u0ccd\u0cd5\u0cd6\u0ce2\u0ce3\u0d3e\u0d41-\u0d44\u0d4d\u0d57\u0d62\u0d63\u0dca\u0dcf\u0dd2-\u0dd4\u0dd6\u0ddf\u0e31\u0e34-\u0e3a\u0e47-\u0e4e\u0eb1\u0eb4-\u0eb9\u0ebb\u0ebc\u0ec8-\u0ecd\u0f18\u0f19\u0f35\u0f37\u0f39\u0f71-\u0f7e\u0f80-\u0f84\u0f86\u0f87\u0f90-\u0f97\u0f99-\u0fbc\u0fc6\u102d-\u1030\u1032-\u1037\u1039\u103a\u103d\u103e\u1058\u1059\u105e-\u1060\u1071-\u1074\u1082\u1085\u1086\u108d\u109d\u135f\u1712-\u1714\u1732-\u1734\u1752\u1753\u1772\u1773\u17b7-\u17bd\u17c6\u17c9-\u17d3\u17dd\u180b-\u180d\u18a9\u1920-\u1922\u1927\u1928\u1932\u1939-\u193b\u1a17\u1a18\u1a56\u1a58-\u1a5e\u1a60\u1a62\u1a65-\u1a6c\u1a73-\u1a7c\u1a7f\u1b00-\u1b03\u1b34\u1b36-\u1b3a\u1b3c\u1b42\u1b6b-\u1b73\u1b80\u1b81\u1ba2-\u1ba5\u1ba8\u1ba9\u1c2c-\u1c33\u1c36\u1c37\u1cd0-\u1cd2\u1cd4-\u1ce0\u1ce2-\u1ce8\u1ced\u1dc0-\u1de6\u1dfd-\u1dff\u200c\u200d\u20d0-\u20f0\u2cef-\u2cf1\u2de0-\u2dff\u302a-\u302f\u3099\u309a\ua66f-\ua672\ua67c\ua67d\ua6f0\ua6f1\ua802\ua806\ua80b\ua825\ua826\ua8c4\ua8e0-\ua8f1\ua926-\ua92d\ua947-\ua951\ua980-\ua982\ua9b3\ua9b6-\ua9b9\ua9bc\uaa29-\uaa2e\uaa31\uaa32\uaa35\uaa36\uaa43\uaa4c\uaab0\uaab2-\uaab4\uaab7\uaab8\uaabe\uaabf\uaac1\uabe5\uabe8\uabed\udc00-\udfff\ufb1e\ufe00-\ufe0f\ufe20-\ufe26\uff9e\uff9f]/;
   function isExtendingChar(ch) { return ch.charCodeAt(0) >= 768 && extendingChars.test(ch); }
 
   // DOM UTILITIES
@@ -8491,7 +8491,7 @@
 
   // Returns null if characters are ordered as they appear
   // (left-to-right), or an array of sections ({from, to, level}
-  // objects) in the order in which they ocomur visually.
+  // objects) in the order in which they occur visually.
   var bidiOrdering = (function() {
     // Character types for codepoints 0 to 0xff
     var lowTypes = "bbbbbbbbbtstwsbbbbbbbbbbbbbbssstwNN%%%NNNNNN,N,N1111111111NNNNNNNLLLLLLLLLLLLLLLLLLLLLLLLLLNNNNNNLLLLLLLLLLLLLLLLLLLLLLLLLLNNNNbbbbbbsbbbbbbbbbbbbbbbbbbbbbbbbbb,N%%%%NNNNLNNNNN%%11NLNNN1LNNNNNLLLLLLLLLLLLLLLLLLLLLLLNLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLN";
@@ -8599,7 +8599,7 @@
       // Here we depart from the documented algorithm, in order to avoid
       // building up an actual levels array. Since there are only three
       // levels (0, 1, 2) in an implementation that doesn't take
-      // explicit embedding into acomount, we can build up the order on
+      // explicit embedding into account, we can build up the order on
       // the fly, without following the level-based algorithm.
       var order = [], m;
       for (var i = 0; i < len;) {

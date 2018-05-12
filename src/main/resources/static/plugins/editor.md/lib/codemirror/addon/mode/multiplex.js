@@ -107,7 +107,7 @@ CodeMirror.multiplexingMode = function(outer /*, others */) {
       }
     },
 
-    electricomhars: outer.electricomhars,
+    electricChars: outer.electricChars,
 
     innerMode: function(state) {
       return state.inner ? {state: state.inner, mode: state.innerActive.mode} : {state: state.outer, mode: outer};

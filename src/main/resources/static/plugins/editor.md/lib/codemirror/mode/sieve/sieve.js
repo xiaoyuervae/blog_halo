@@ -26,8 +26,8 @@ CodeMirror.defineMode("sieve", function(config) {
 
     var ch = stream.next();
     if (ch == "/" && stream.eat("*")) {
-      state.tokenize = tokencomomment;
-      return tokencomomment(stream, state);
+      state.tokenize = tokenCComment;
+      return tokenCComment(stream, state);
     }
 
     if (ch === '#') {
@@ -134,7 +134,7 @@ CodeMirror.defineMode("sieve", function(config) {
     return "string";
   }
 
-  function tokencomomment(stream, state) {
+  function tokenCComment(stream, state) {
     var maybeEnd = false, ch;
     while ((ch = stream.next()) != null) {
       if (maybeEnd && ch == "/") {
@@ -184,7 +184,7 @@ CodeMirror.defineMode("sieve", function(config) {
       return length * indentUnit;
     },
 
-    electricomhars: "}"
+    electricChars: "}"
   };
 });
 

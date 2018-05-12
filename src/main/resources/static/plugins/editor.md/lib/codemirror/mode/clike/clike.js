@@ -171,7 +171,7 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
       else return ctx.indented + (closing ? 0 : indentUnit);
     },
 
-    electricomhars: "{}",
+    electricChars: "{}",
     blockCommentStart: "/*",
     blockCommentEnd: "*/",
     lineComment: "//",

@@ -203,7 +203,7 @@
     tocm: false, // Using [TOCM], auto create ToC dropdown menu
     tocTitle: "", // for ToC dropdown menu btn
     tocDropdown: false,
-    tocomontainer: "",
+    tocContainer: "",
     tocStartLevel: 1, // Said from H1 to create ToC
     htmlDecode: false, // Open the HTML tag identification
     pageBreak: true, // Enable parse page break [========]
@@ -1905,34 +1905,34 @@
         previewContainer.html(newMarkdownDoc)
         this.previewCodeHighlight()
         if (settings.toc) {
-          var tocomontainer =
-            settings.tocomontainer === ""
+          var tocContainer =
+            settings.tocContainer === ""
               ? previewContainer
-              : $(settings.tocomontainer)
-          var tocMenu = tocomontainer.find("." + this.classPrefix + "toc-menu")
-          tocomontainer.attr(
+              : $(settings.tocContainer)
+          var tocMenu = tocContainer.find("." + this.classPrefix + "toc-menu")
+          tocContainer.attr(
             "previewContainer",
-            settings.tocomontainer === "" ? "true" : "false"
+            settings.tocContainer === "" ? "true" : "false"
           )
-          if (settings.tocomontainer !== "" && tocMenu.length > 0) {
+          if (settings.tocContainer !== "" && tocMenu.length > 0) {
             tocMenu.remove()
           }
           editormd.markdownToCRenderer(
             markdownToC,
-            tocomontainer,
+            tocContainer,
             settings.tocDropdown,
             settings.tocStartLevel
           )
           if (
             settings.tocDropdown ||
-            tocomontainer.find("." + this.classPrefix + "toc-menu").length > 0
+            tocContainer.find("." + this.classPrefix + "toc-menu").length > 0
           ) {
             editormd.tocDropdownMenu(
-              tocomontainer,
+              tocContainer,
               settings.tocTitle !== "" ? settings.tocTitle : this.lang.tocTitle
             )
           }
-          if (settings.tocomontainer !== "") {
+          if (settings.tocContainer !== "") {
             previewContainer.find(".markdown-toc").css("border", "none")
           }
         }
@@ -2524,7 +2524,7 @@
         return this
       }
       if (!settings.readOnly) {
-        this.cm.execomommand(command || "find")
+        this.cm.execCommand(command || "find")
       }
       return this
     },
@@ -3355,7 +3355,7 @@
    * @param   {Array}    toc             从marked获取的TOC数组列表
    * @param   {Element}  container       插入TOC的容器元素
    * @param   {Integer}  startLevel      Hx 起始层级
-   * @returns {Object}   tocomontainer    返回ToC列表容器层的jQuery对象元素
+   * @returns {Object}   tocContainer    返回ToC列表容器层的jQuery对象元素
    */
 
   editormd.markdownToCRenderer = function(
@@ -3407,10 +3407,10 @@
         "</a><ul>"
     }
 
-    var tocomontainer = container.find(".markdown-toc")
+    var tocContainer = container.find(".markdown-toc")
 
     if (
-      tocomontainer.length < 1 &&
+      tocContainer.length < 1 &&
       container.attr("previewContainer") === "false"
     ) {
       var tocHTML =
@@ -3419,16 +3419,16 @@
         ? '<div class="' + classPrefix + 'toc-menu">' + tocHTML + "</div>"
         : tocHTML
       container.html(tocHTML)
-      tocomontainer = container.find(".markdown-toc")
+      tocContainer = container.find(".markdown-toc")
     }
     if (tocDropdown) {
-      tocomontainer.wrap('<div class="' + classPrefix + 'toc-menu"></div><br/>')
+      tocContainer.wrap('<div class="' + classPrefix + 'toc-menu"></div><br/>')
     }
-    tocomontainer
+    tocContainer
       .html('<ul class="markdown-toc-list"></ul>')
       .children(".markdown-toc-list")
       .html(html.replace(/\r?\n?<ul\><\/ul\>/g, ""))
-    return tocomontainer
+    return tocContainer
   }
 
   /**
@@ -3589,7 +3589,7 @@
       tocStartLevel: 1,
       tocTitle: "目录",
       tocDropdown: false,
-      tocomontainer: "",
+      tocContainer: "",
       markdown: "",
       markdownSourceCode: false,
       htmlDecode: false,
@@ -3655,15 +3655,15 @@
     div
       .addClass("markdown-body " + this.classPrefix + "html-preview")
       .append(markdownParsed)
-    var tocomontainer =
-      settings.tocomontainer !== "" ? $(settings.tocomontainer) : div
-    if (settings.tocomontainer !== "") {
-      tocomontainer.attr("previewContainer", false)
+    var tocContainer =
+      settings.tocContainer !== "" ? $(settings.tocContainer) : div
+    if (settings.tocContainer !== "") {
+      tocContainer.attr("previewContainer", false)
     }
     if (settings.toc) {
-      div.tocomontainer = this.markdownToCRenderer(
+      div.tocContainer = this.markdownToCRenderer(
         markdownToC,
-        tocomontainer,
+        tocContainer,
         settings.tocDropdown,
         settings.tocStartLevel
       )
@@ -3673,7 +3673,7 @@
       ) {
         this.tocDropdownMenu(div, settings.tocTitle)
       }
-      if (settings.tocomontainer !== "") {
+      if (settings.tocContainer !== "") {
         div.find(".editormd-toc-menu, .editormd-markdown-toc").remove()
       }
     }

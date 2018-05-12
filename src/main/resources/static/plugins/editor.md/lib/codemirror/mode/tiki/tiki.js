@@ -203,7 +203,7 @@ CodeMirror.defineMode('tiki', function(config) {
 
 var curState, setStyle;
 function pass() {
-  for (var i = arguments.length - 1; i >= 0; i--) curState.com.push(arguments[i]);
+  for (var i = arguments.length - 1; i >= 0; i--) curState.cc.push(arguments[i]);
 }
 
 function cont() {
@@ -283,7 +283,7 @@ function attvaluemaybe(type) {
 }
 return {
   startState: function() {
-    return {tokenize: inText, com: [], indented: 0, startOfLine: true, pluginName: null, context: null};
+    return {tokenize: inText, cc: [], indented: 0, startOfLine: true, pluginName: null, context: null};
   },
   token: function(stream, state) {
     if (stream.sol()) {
@@ -297,7 +297,7 @@ return {
     if ((style || type) && style != "comment") {
       curState = state;
       while (true) {
-        var comb = state.com.pop() || element;
+        var comb = state.cc.pop() || element;
         if (comb(type || style)) break;
       }
     }
@@ -314,7 +314,7 @@ return {
         if (context) return context.indent + indentUnit;
         else return 0;
        },
-    electricomhars: "/"
+    electricChars: "/"
   };
 });
 

@@ -365,7 +365,7 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
       return indent;
     },
 
-    electricomhars: "}",
+    electricChars: "}",
     blockCommentStart: "/*",
     blockCommentEnd: "*/",
     fold: "brace"
@@ -528,11 +528,11 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
     "lightsteelblue", "lightyellow", "lime", "limegreen", "linen", "magenta",
     "maroon", "mediumaquamarine", "mediumblue", "mediumorchid", "mediumpurple",
     "mediumseagreen", "mediumslateblue", "mediumspringgreen", "mediumturquoise",
-    "mediumvioletred", "midnightblue", "mintcream", "mistyrose", "mocomasin",
+    "mediumvioletred", "midnightblue", "mintcream", "mistyrose", "moccasin",
     "navajowhite", "navy", "oldlace", "olive", "olivedrab", "orange", "orangered",
     "orchid", "palegoldenrod", "palegreen", "paleturquoise", "palevioletred",
     "papayawhip", "peachpuff", "peru", "pink", "plum", "powderblue",
-    "purple", "rebecomapurple", "red", "rosybrown", "royalblue", "saddlebrown",
+    "purple", "rebeccapurple", "red", "rosybrown", "royalblue", "saddlebrown",
     "salmon", "sandybrown", "seagreen", "seashell", "sienna", "silver", "skyblue",
     "slateblue", "slategray", "snow", "springgreen", "steelblue", "tan",
     "teal", "thistle", "tomato", "turquoise", "violet", "wheat", "white",
@@ -639,7 +639,7 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
     .concat(nonStandardPropertyKeywords_).concat(colorKeywords_).concat(valueKeywords_);
   CodeMirror.registerHelper("hintWords", "css", allWords);
 
-  function tokencomomment(stream, state) {
+  function tokenCComment(stream, state) {
     var maybeEnd = false, ch;
     while ((ch = stream.next()) != null) {
       if (maybeEnd && ch == "/") {
@@ -679,8 +679,8 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
       },
       "/": function(stream, state) {
         if (!stream.eat("*")) return false;
-        state.tokenize = tokencomomment;
-        return tokencomomment(stream, state);
+        state.tokenize = tokenCComment;
+        return tokenCComment(stream, state);
       }
     },
     name: "css"
@@ -701,8 +701,8 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
           stream.skipToEnd();
           return ["comment", "comment"];
         } else if (stream.eat("*")) {
-          state.tokenize = tokencomomment;
-          return tokencomomment(stream, state);
+          state.tokenize = tokenCComment;
+          return tokenCComment(stream, state);
         } else {
           return ["operator", "operator"];
         }
@@ -742,8 +742,8 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
           stream.skipToEnd();
           return ["comment", "comment"];
         } else if (stream.eat("*")) {
-          state.tokenize = tokencomomment;
-          return tokencomomment(stream, state);
+          state.tokenize = tokenCComment;
+          return tokenCComment(stream, state);
         } else {
           return ["operator", "operator"];
         }

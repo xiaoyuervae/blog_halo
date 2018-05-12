@@ -21,7 +21,7 @@ CodeMirror.defineMode("ruby", function(config) {
     "alias", "and", "BEGIN", "begin", "break", "case", "class", "def", "defined?", "do", "else",
     "elsif", "END", "end", "ensure", "false", "for", "if", "in", "module", "next", "not", "or",
     "redo", "rescue", "retry", "return", "self", "super", "then", "true", "undef", "unless",
-    "until", "when", "while", "yield", "nil", "raise", "throw", "catch", "fail", "loop", "callcom",
+    "until", "when", "while", "yield", "nil", "raise", "throw", "catch", "fail", "loop", "callcc",
     "caller", "lambda", "proc", "public", "protected", "private", "require", "load",
     "require_relative", "extend", "autoload", "__END__", "__FILE__", "__LINE__", "__dir__"
   ]);
@@ -275,7 +275,7 @@ CodeMirror.defineMode("ruby", function(config) {
         (state.continuedLine ? config.indentUnit : 0);
     },
 
-    electricomhars: "}de", // enD and rescuE
+    electricChars: "}de", // enD and rescuE
     lineComment: "#"
   };
 });

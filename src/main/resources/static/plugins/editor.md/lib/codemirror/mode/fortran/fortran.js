@@ -21,7 +21,7 @@ CodeMirror.defineMode("fortran", function() {
   }
 
   var keywords = words([
-                  "abstract", "acomept", "allocatable", "allocate",
+                  "abstract", "accept", "allocatable", "allocate",
                   "array", "assign", "asynchronous", "backspace",
                   "bind", "block", "byte", "call", "case",
                   "class", "close", "common", "contains",
@@ -43,12 +43,12 @@ CodeMirror.defineMode("fortran", function() {
                   "stop", "subroutine", "target", "then", "to", "type",
                   "use", "value", "volatile", "where", "while",
                   "write"]);
-  var builtins = words(["abort", "abs", "acomess", "achar", "acos",
+  var builtins = words(["abort", "abs", "access", "achar", "acos",
                           "adjustl", "adjustr", "aimag", "aint", "alarm",
                           "all", "allocated", "alog", "amax", "amin",
                           "amod", "and", "anint", "any", "asin",
                           "associated", "atan", "besj", "besjn", "besy",
-                          "besyn", "bit_size", "btest", "cabs", "comos",
+                          "besyn", "bit_size", "btest", "cabs", "ccos",
                           "ceiling", "cexp", "char", "chdir", "chmod",
                           "clog", "cmplx", "command_argument_count",
                           "complex", "conjg", "cos", "cosh", "count",

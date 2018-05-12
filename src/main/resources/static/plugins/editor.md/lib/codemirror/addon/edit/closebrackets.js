@@ -105,10 +105,10 @@
 
         cm.operation(function() {
           if (type == "skip") {
-            cm.execomommand("goCharRight");
+            cm.execCommand("goCharRight");
           } else if (type == "skipThree") {
             for (var i = 0; i < 3; i++)
-              cm.execomommand("goCharRight");
+              cm.execCommand("goCharRight");
           } else if (type == "surround") {
             var sels = cm.getSelections();
             for (var i = 0; i < sels.length; i++)
@@ -116,10 +116,10 @@
             cm.replaceSelections(sels, "around");
           } else if (type == "both") {
             cm.replaceSelection(left + right, null);
-            cm.execomommand("goCharLeft");
+            cm.execCommand("goCharLeft");
           } else if (type == "addFour") {
             cm.replaceSelection(left + left + left + left, "before");
-            cm.execomommand("goCharRight");
+            cm.execCommand("goCharRight");
           }
         });
       };
@@ -131,7 +131,7 @@
               cm.getRange(range.head, Pos(range.head.line, range.head.ch + 1)) != right)
             return CodeMirror.Pass;
         }
-        cm.execomommand("goCharRight");
+        cm.execCommand("goCharRight");
       };
     })(pairs.charAt(i), pairs.charAt(i + 1));
     return map;
@@ -148,7 +148,7 @@
       }
       cm.operation(function() {
         cm.replaceSelection("\n\n", null);
-        cm.execomommand("goCharLeft");
+        cm.execCommand("goCharLeft");
         ranges = cm.listSelections();
         for (var i = 0; i < ranges.length; i++) {
           var line = ranges[i].head.line;

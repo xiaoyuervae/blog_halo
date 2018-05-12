@@ -28,7 +28,7 @@
 .cm-s-pastel-on-dark .CodeMirror-cursor { border-left: 1px solid #A7A7A7 !important; }
 .cm-s-pastel-on-dark span.cm-comment { color: #A6C6FF; }
 .cm-s-pastel-on-dark span.cm-atom { color: #DE8E30; }
-.cm-s-pastel-on-dark span.cm-number { color: #comcomcom; }
+.cm-s-pastel-on-dark span.cm-number { color: #CCCCCC; }
 .cm-s-pastel-on-dark span.cm-property { color: #8F938F; }
 .cm-s-pastel-on-dark span.cm-attribute { color: #a6e22e; }
 .cm-s-pastel-on-dark span.cm-keyword { color: #AEB2F8; }

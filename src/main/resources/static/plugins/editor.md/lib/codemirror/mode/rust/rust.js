@@ -140,9 +140,9 @@ CodeMirror.defineMode("rust", function() {
 
   // Parser
 
-  var cx = {state: null, stream: null, marked: null, com: null};
+  var cx = {state: null, stream: null, marked: null, cc: null};
   function pass() {
-    for (var i = arguments.length - 1; i >= 0; i--) cx.com.push(arguments[i]);
+    for (var i = arguments.length - 1; i >= 0; i--) cx.cc.push(arguments[i]);
   }
   function cont() {
     pass.apply(null, arguments);
@@ -386,16 +386,16 @@ CodeMirror.defineMode("rust", function() {
   }
 
   function parse(state, stream, style) {
-    var com = state.com;
+    var cc = state.cc;
     // Communicate our context to the combinators.
     // (Less wasteful than consing up a hundred closures on every call.)
-    cx.state = state; cx.stream = stream; cx.marked = null, cx.com = com;
+    cx.state = state; cx.stream = stream; cx.marked = null, cx.cc = cc;
 
     while (true) {
-      var combinator = com.length ? com.pop() : block;
+      var combinator = cc.length ? cc.pop() : block;
       if (combinator(tcat)) {
-        while(com.length && com[com.length - 1].lex)
-          com.pop()();
+        while(cc.length && cc[cc.length - 1].lex)
+          cc.pop()();
         return cx.marked || style;
       }
     }
@@ -405,7 +405,7 @@ CodeMirror.defineMode("rust", function() {
     startState: function() {
       return {
         tokenize: tokenBase,
-        com: [],
+        cc: [],
         lexical: {indented: -indentUnit, column: 0, type: "top", align: false},
         keywords: valKeywords,
         indented: 0
@@ -438,7 +438,7 @@ CodeMirror.defineMode("rust", function() {
       return lexical.indented + (closing ? 0 : (lexical.info == "alt" ? altIndentUnit : indentUnit));
     },
 
-    electricomhars: "{}",
+    electricChars: "{}",
     blockCommentStart: "/*",
     blockCommentEnd: "*/",
     lineComment: "//",

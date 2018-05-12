@@ -28,7 +28,7 @@ CodeMirror.defineMode("mirc", function() {
                             "$chantypes $chat $chr $cid $clevel $click $cmdbox $cmdline $cnick $color " +
                             "$com $comcall $comchan $comerr $compact $compress $comval $cos $count " +
                             "$cr $crc $creq $crlf $ctime $ctimer $ctrlenter $date $day $daylight " +
-                            "$dbuh $dbuw $dcomignore $dcomport $dde $ddename $debug $decode $decompress " +
+                            "$dbuh $dbuw $dccignore $dccport $dde $ddename $debug $decode $decompress " +
                             "$deltok $devent $dialog $did $didreg $didtok $didwm $disk $dlevel $dll " +
                             "$dllcall $dname $dns $duration $ebeeps $editbox $emailaddr $encode $error " +
                             "$eval $event $exist $feof $ferr $fgetc $file $filename $filtered $finddir " +
@@ -45,7 +45,7 @@ CodeMirror.defineMode("mirc", function() {
                             "$menutype $mid $middir $mircdir $mircexe $mircini $mklogfn $mnick $mode " +
                             "$modefirst $modelast $modespl $mouse $msfile $network $newnick $nick $nofile " +
                             "$nopath $noqt $not $notags $notify $null $numeric $numok $oline $onpoly " +
-                            "$opnick $or $ord $os $passivedcom $pic $play $pnick $port $portable $portfree " +
+                            "$opnick $or $ord $os $passivedcc $pic $play $pnick $port $portable $portfree " +
                             "$pos $prefix $prop $protect $puttok $qt $query $rand $r $rawmsg $read $readomo " +
                             "$readn $regex $regml $regsub $regsubex $remove $remtok $replace $replacex " +
                             "$reptok $result $rgb $right $round $scid $scon $script $scriptdir $scriptline " +
@@ -59,7 +59,7 @@ CodeMirror.defineMode("mirc", function() {
   var keywords = parseWords("abook ajinvite alias aline ame amsg anick aop auser autojoin avoice " +
                             "away background ban bcopy beep bread break breplace bset btrunc bunset bwrite " +
                             "channel clear clearall cline clipboard close cnick color comclose comopen " +
-                            "comreg continue copy creq ctcpreply ctcps dcom dcomserver dde ddeserver " +
+                            "comreg continue copy creq ctcpreply ctcps dcc dccserver dde ddeserver " +
                             "debug dec describe dialog did didtok disable disconnect dlevel dline dll " +
                             "dns dqwindow drawcopy drawdot drawfill drawline drawpic drawrect drawreplace " +
                             "drawrot drawsave drawscroll drawtext ebeeps echo editbox emailaddr enable " +
@@ -69,10 +69,10 @@ CodeMirror.defineMode("mirc", function() {
                             "halt haltdef hdec hdel help hfree hinc hload hmake hop hsave ial ialclear " +
                             "ialmark identd if ignore iline inc invite iuser join kick linesep links list " +
                             "load loadbuf localinfo log mdi me menubar mkdir mnick mode msg nick noop notice " +
-                            "notify omsg onotice part partall pdcom perform play playctrl pop protect pvoice " +
+                            "notify omsg onotice part partall pdcc perform play playctrl pop protect pvoice " +
                             "qme qmsg query queryn quit raw reload remini remote remove rename renwin " +
                             "reseterror resetidle return rlevel rline rmdir run ruser save savebuf saveini " +
-                            "say scid scon server set showmirc signam sline sockacomept sockclose socklist " +
+                            "say scid scon server set showmirc signam sline sockaccept sockclose socklist " +
                             "socklisten sockmark sockopen sockpause sockread sockrename sockudp sockwrite " +
                             "sound speak splay sreq strip switchbar timer timestamp titlebar tnick tokenize " +
                             "toolbar topic tray treebar ulist unload unset unsetall updatenl url uwho " +

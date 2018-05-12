@@ -132,7 +132,7 @@ CodeMirror.defineMode('mllike', function(_config, parserConfig) {
 CodeMirror.defineMIME('text/x-ocaml', {
   name: 'mllike',
   extraWords: {
-    'sucom': 'keyword',
+    'succ': 'keyword',
     'trace': 'builtin',
     'exit': 'builtin',
     'print_string': 'builtin',

@@ -71,7 +71,7 @@ CodeMirror.overlayMode = function(base, overlay, combine) {
     indent: base.indent && function(state, textAfter) {
       return base.indent(state.base, textAfter);
     },
-    electricomhars: base.electricomhars,
+    electricChars: base.electricChars,
 
     innerMode: function(state) { return {state: state.base, mode: base}; },
 

@@ -103,7 +103,7 @@ CodeMirror.defineMode("eiffel", function() {
     } else if (ch == ":"&&stream.eat("=")) {
       return "operator";
     } else if (/[0-9]/.test(ch)) {
-      stream.eatWhile(/[xXbBcom0-9\.]/);
+      stream.eatWhile(/[xXbBCc0-9\.]/);
       stream.eat(/[\?\!]/);
       return "ident";
     } else if (/[a-zA-Z_0-9]/.test(ch)) {
@@ -145,7 +145,7 @@ CodeMirror.defineMode("eiffel", function() {
           : operators.propertyIsEnumerable(stream.current()) ? "operator"
           : /^[A-Z][A-Z_0-9]*$/g.test(word) ? "tag"
           : /^0[bB][0-1]+$/g.test(word) ? "number"
-          : /^0[com][0-7]+$/g.test(word) ? "number"
+          : /^0[cC][0-7]+$/g.test(word) ? "number"
           : /^0[xX][a-fA-F0-9]+$/g.test(word) ? "number"
           : /^([0-9]+\.[0-9]*)|([0-9]*\.[0-9]+)$/g.test(word) ? "number"
           : /^[0-9]+$/g.test(word) ? "number"

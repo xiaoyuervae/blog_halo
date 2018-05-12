@@ -230,7 +230,7 @@ CodeMirror.defineMode("vb", function(conf, parserConf) {
     }
 
     var external = {
-        electricomhars:"dDpPtTfFeE ",
+        electricChars:"dDpPtTfFeE ",
         startState: function() {
             return {
               tokenize: tokenBase,

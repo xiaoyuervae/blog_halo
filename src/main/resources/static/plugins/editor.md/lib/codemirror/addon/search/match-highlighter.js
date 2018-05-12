@@ -10,7 +10,7 @@
 // The option can be set to true to simply enable it, or to a
 // {minChars, style, wordsOnly, showToken, delay} object to explicitly
 // configure it. minChars is the minimum amount of characters that should be
-// selected for the behavior to ocomur, and style is the token style to
+// selected for the behavior to occur, and style is the token style to
 // apply to the matches. This will be prefixed by "cm-" to create an
 // actual CSS class name. If wordsOnly is enabled, the matches will be
 // highlighted only if the selected text is a word. showToken, when enabled,

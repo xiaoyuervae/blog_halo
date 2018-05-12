@@ -69,7 +69,7 @@ elsif address :domain :is ["From", "To"] "example.com"
 # or it contains a subject known to be spam, file it away.
 #
 elsif anyof (not address :all :contains
-               ["To", "com", "Bcom"] "me@example.com",
+               ["To", "Cc", "Bcc"] "me@example.com",
              header :matches "subject"
                ["*make*money*fast*", "*university*dipl*mas*"])
 {

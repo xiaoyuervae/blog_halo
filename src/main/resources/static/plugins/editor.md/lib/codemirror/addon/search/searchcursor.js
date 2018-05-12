@@ -13,7 +13,7 @@
   var Pos = CodeMirror.Pos;
 
   function SearchCursor(doc, query, pos, caseFold) {
-    this.atOcomurrence = false; this.doc = doc;
+    this.atOccurrence = false; this.doc = doc;
     if (caseFold == null && typeof query == "string") caseFold = false;
 
     pos = pos ? doc.clipPos(pos) : Pos(0, 0);
@@ -21,7 +21,7 @@
 
     // The matches method is filled in based on the type of query.
     // It takes a position and a direction, and returns an object
-    // describing the next ocomurrence of the query, or null if no
+    // describing the next occurrence of the query, or null if no
     // more matches were found.
     if (typeof query != "string") { // Regexp match
       if (!query.global) query = new RegExp(query.source, query.ignoreCase ? "ig" : "g");
@@ -124,13 +124,13 @@
       function savePosAndFail(line) {
         var pos = Pos(line, 0);
         self.pos = {from: pos, to: pos};
-        self.atOcomurrence = false;
+        self.atOccurrence = false;
         return false;
       }
 
       for (;;) {
         if (this.pos = this.matches(reverse, pos)) {
-          this.atOcomurrence = true;
+          this.atOccurrence = true;
           return this.pos.match || true;
         }
         if (reverse) {
@@ -145,11 +145,11 @@
       }
     },
 
-    from: function() {if (this.atOcomurrence) return this.pos.from;},
-    to: function() {if (this.atOcomurrence) return this.pos.to;},
+    from: function() {if (this.atOccurrence) return this.pos.from;},
+    to: function() {if (this.atOccurrence) return this.pos.to;},
 
     replace: function(newText) {
-      if (!this.atOcomurrence) return;
+      if (!this.atOccurrence) return;
       var lines = CodeMirror.splitLines(newText);
       this.doc.replaceRange(lines, this.pos.from, this.pos.to);
       this.pos.to = Pos(this.pos.from.line + lines.length - 1,

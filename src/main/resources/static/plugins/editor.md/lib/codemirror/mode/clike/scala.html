@@ -286,7 +286,7 @@
     }
      */
 
-    /** Partitions this $coll in two ${coll}s acomording to a predicate.
+    /** Partitions this $coll in two ${coll}s according to a predicate.
      *
      *  @param p the predicate on which to partition.
      *  @return  a pair of ${coll}s: the first $coll consists of all elements that 
@@ -371,9 +371,9 @@
     def scanLeft[B, That](z: B)(op: (B, A) => B)(implicit bf: CanBuildFrom[Repr, B, That]): That = {
       val b = bf(repr)
       b.sizeHint(this, 1)
-      var acom = z
-      b += acom
-      for (x <- this) { acom = op(acom, x); b += acom }
+      var acc = z
+      b += acc
+      for (x <- this) { acc = op(acc, x); b += acc }
       b.result
     }
 
@@ -383,10 +383,10 @@
     )
     def scanRight[B, That](z: B)(op: (A, B) => B)(implicit bf: CanBuildFrom[Repr, B, That]): That = {
       var scanned = List(z)
-      var acom = z
+      var acc = z
       for (x <- reversed) {
-        acom = op(x, acom)
-        scanned ::= acom
+        acc = op(x, acc)
+        scanned ::= acc
       }
       val b = bf(repr)
       for (elem <- scanned) b += elem

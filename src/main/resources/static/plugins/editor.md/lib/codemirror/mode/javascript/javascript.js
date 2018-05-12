@@ -238,19 +238,19 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
   }
 
   function parseJS(state, style, type, content, stream) {
-    var com = state.com;
+    var cc = state.cc;
     // Communicate our context to the combinators.
     // (Less wasteful than consing up a hundred closures on every call.)
-    cx.state = state; cx.stream = stream; cx.marked = null, cx.com = com; cx.style = style;
+    cx.state = state; cx.stream = stream; cx.marked = null, cx.cc = cc; cx.style = style;
 
     if (!state.lexical.hasOwnProperty("align"))
       state.lexical.align = true;
 
     while(true) {
-      var combinator = com.length ? com.pop() : jsonMode ? expression : statement;
+      var combinator = cc.length ? cc.pop() : jsonMode ? expression : statement;
       if (combinator(type, content)) {
-        while(com.length && com[com.length - 1].lex)
-          com.pop()();
+        while(cc.length && cc[cc.length - 1].lex)
+          cc.pop()();
         if (cx.marked) return cx.marked;
         if (type == "variable" && inScope(state, content)) return "variable-2";
         return style;
@@ -260,9 +260,9 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
 
   // Combinator utils
 
-  var cx = {state: null, column: null, marked: null, com: null};
+  var cx = {state: null, column: null, marked: null, cc: null};
   function pass() {
-    for (var i = arguments.length - 1; i >= 0; i--) cx.com.push(arguments[i]);
+    for (var i = arguments.length - 1; i >= 0; i--) cx.cc.push(arguments[i]);
   }
   function cont() {
     pass.apply(null, arguments);
@@ -334,8 +334,8 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
     if (type == "{") return cont(pushlex("}"), block, poplex);
     if (type == ";") return cont();
     if (type == "if") {
-      if (cx.state.lexical.info == "else" && cx.state.com[cx.state.com.length - 1] == poplex)
-        cx.state.com.pop()();
+      if (cx.state.lexical.info == "else" && cx.state.cc[cx.state.cc.length - 1] == poplex)
+        cx.state.cc.pop()();
       return cont(pushlex("form"), expression, statement, poplex, maybeelse);
     }
     if (type == "function") return cont(functiondef);
@@ -472,7 +472,7 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
   }
   function contCommasep(what, end, info) {
     for (var i = 3; i < arguments.length; i++)
-      cx.com.push(arguments[i]);
+      cx.cc.push(arguments[i]);
     return cont(pushlex(end, info), commasep(what, end), poplex);
   }
   function block(type) {
@@ -613,7 +613,7 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
       var state = {
         tokenize: tokenBase,
         lastType: "sof",
-        com: [],
+        cc: [],
         lexical: new JSLexical((basecolumn || 0) - indentUnit, 0, "block", false),
         localVars: parserConfig.localVars,
         context: parserConfig.localVars && {vars: parserConfig.localVars},
@@ -643,8 +643,8 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
       if (state.tokenize != tokenBase) return 0;
       var firstChar = textAfter && textAfter.charAt(0), lexical = state.lexical;
       // Kludge to prevent 'maybelse' from blocking lexical scope pops
-      if (!/^\s*else\b/.test(textAfter)) for (var i = state.com.length - 1; i >= 0; --i) {
-        var c = state.com[i];
+      if (!/^\s*else\b/.test(textAfter)) for (var i = state.cc.length - 1; i >= 0; --i) {
+        var c = state.cc[i];
         if (c == poplex) lexical = lexical.prev;
         else if (c != maybeelse) break;
       }

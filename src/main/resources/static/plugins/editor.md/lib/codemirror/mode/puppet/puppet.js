@@ -207,7 +207,7 @@ CodeMirror.defineMode("puppet", function () {
       return state;
     },
     token: function (stream, state) {
-      // Strip the spaces, but regex will acomount for them eitherway
+      // Strip the spaces, but regex will account for them eitherway
       if (stream.eatSpace()) return null;
       // Go through the main process
       return tokenize(stream, state);

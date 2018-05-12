@@ -111,7 +111,7 @@
     form: {
       attrs: {
         action: null, name: null,
-        "acomept-charset": charsets,
+        "accept-charset": charsets,
         autocomplete: ["on", "off"],
         enctype: encs,
         method: methods,
@@ -153,7 +153,7 @@
         height: null, list: null, max: null, maxlength: null, min: null,
         name: null, pattern: null, placeholder: null, size: null, src: null,
         step: null, value: null, width: null,
-        acomept: ["audio/*", "video/*", "image/*"],
+        accept: ["audio/*", "video/*", "image/*"],
         autocomplete: ["on", "off"],
         autofocus: ["", "autofocus"],
         checked: ["", "checked"],
@@ -305,7 +305,7 @@
   };
 
   var globalAttrs = {
-    acomesskey: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+    accesskey: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
     "class": null,
     contenteditable: ["true", "false"],
     contextmenu: null,
