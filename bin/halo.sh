@@ -1,5 +1,5 @@
 #!/bin/bash
-APP_NAME=blog_halo-0.0.2.jar
+APP_NAME=/opt/halo_blog/main/blog_halo-0.0.2.jar
 
 usage() {
     echo "用法: sh blog_halo.sh [start(启动)|stop(停止)|restart(重启)|status(状态)]"
@@ -20,7 +20,7 @@ start(){
   if [ $? -eq "0" ]; then
     echo "${APP_NAME} 正在运行。 pid=${pid} ."
   else
-    nohup java -server -Xms512m -Xmx768m -jar $APP_NAME > /dev/null 2>&1 &
+    nohup java -server -Xms256m -Xmx256m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/opt/halo_blog/logs -jar $APP_NAME > /dev/null 2>&1 &
     echo "${APP_NAME}启动成功，请查看日志确保运行正常。"
     fi
 }
